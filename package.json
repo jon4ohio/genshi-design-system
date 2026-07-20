@@ -18,7 +18,9 @@
     "lint": "npm run lint -w @genshi/config --if-present || true",
     "recreate:tokens": "node scripts/recreate-genshi-tokens.mjs",
     "validate": "node scripts/validate-terminology.mjs && node scripts/validate-taxonomy.mjs && node scripts/validate-boundaries.mjs",
+    "prestorybook": "npm run build:tokens && npm run build:themes",
     "storybook": "storybook dev -p 6006",
+    "prebuild-storybook": "npm run build",
     "build-storybook": "storybook build",
     "dev": "npm run dev -w employee-directory",
     "changeset": "changeset"

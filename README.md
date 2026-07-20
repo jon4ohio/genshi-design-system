@@ -42,9 +42,10 @@ Adapters           (@genshi/react, vue, angular)
 
 ```bash
 npm install
-npm run build
-npm run storybook
+npm run storybook    # http://localhost:6006 — auto-builds tokens and themes first
 ```
+
+For package development, run a full build: `npm run build`.
 
 ## Token vocabulary
 
