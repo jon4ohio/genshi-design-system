@@ -1,6 +1,6 @@
 # Genshi Architecture
 
-Frozen architecture boundaries for contributors. Ratified in [docs/adr/](docs/adr/) ADR-0001 through ADR-0008.
+Frozen architecture boundaries for contributors. Ratified in [docs/adr/](docs/adr/) ADR-0001 through ADR-0009.
 
 ## Two-repository model
 
@@ -9,17 +9,34 @@ Frozen architecture boundaries for contributors. Ratified in [docs/adr/](docs/ad
 | [Genshi 原子](https://github.com/jon4ohio/genshi) | Research & Validation lineage |
 | **genshi-design-system** (this repo) | Production OSS |
 
-## Token layers
+## Architecture · Taxonomy · Adaptation
+
+Three orthogonal concerns (see [ADR-0009](docs/adr/ADR-0009-Architecture-Taxonomy-Adaptation.md)):
+
+**Architecture:** Core → Intent → Component  
+**Resolution invariant:** Component → Intent → Core (never Component → Core)
+
+**Taxonomy:** Public **token domains** organize the Intent layer. Architectural layer names are not part of the public token namespace.
+
+**Adaptation:** Vendor (SeamKit) → `recreate-genshi-tokens.mjs` → canonical Genshi JSON → Style Dictionary → `--gsh-*`
+
+### Token layers
 
 ```text
-Core       (.primitive/)   → immutable primitives
-Intent     (color/)        → design intent / system language
-Component  (component/)     → component styling contract
+Core       (core.json)        → immutable primitives
+Intent     (color, sizing, typography) → design intent / token domains
+Component  (component.json)   → component styling contract
 ```
 
-**Middle layer name: Intent** — not "Semantic" (SeamKit vendor paths only), not "Decision" (ADR vocabulary only).
+**Middle layer name: Intent** — not "Semantic" (vendor only), not "Decision" (ADR vocabulary only).
 
-See [ADR-0002](docs/adr/ADR-0002-Layered-Token-Architecture.md) and [mappings/layers.json](mappings/layers.json).
+See [ADR-0002](docs/adr/ADR-0002-Layered-Token-Architecture.md), [mappings/layers.json](mappings/layers.json), [mappings/taxonomy.json](mappings/taxonomy.json).
+
+### Governance invariants
+
+- **Namespace purity:** No `gsh.color.intent…` paths — use domains (`text`, `fill`, `decorative`, …)
+- **Resolution chain:** Component tokens may only reference Intent tokens; Intent may only reference Core
+- **Vendor isolation:** No `sfe` / `non-semantic` / `--sfe-` outside `tokens/vendor/**` and `ADAPTATION.md`
 
 **Contributor rule:** Components consume **Component Tokens** only.
 
@@ -57,21 +74,15 @@ Enforced by `npm run validate`.
 
 ```text
 Foundations/     Platform overview, architecture, governance
-Tokens/          Core, Intent, Component layers
+Tokens/          Layers (architecture) + domains (taxonomy)
 Components/      gsh-* catalog
 Integrations/    Framework adapters (React)
 ```
 
-## Phase 2 exemplary components
-
-Phase 1: Text, Box, Stack, Button, Input, Badge, Icon.
-
-Phase 2 additions (locked set before catalog expansion): **Select**, **Checkbox**, **Dialog**, **Table**.
-
 ## Validation
 
 ```bash
-npm run validate          # terminology + package boundaries
+npm run validate          # terminology + taxonomy + package boundaries
 npm run build && npm test
 npm run build-storybook
 ```
@@ -88,3 +99,4 @@ npm run build-storybook
 | 0006 | Foundation Principles |
 | 0007 | Framework Adapter Strategy |
 | 0008 | Repository Separation |
+| 0009 | Architecture, Taxonomy, and Adaptation |

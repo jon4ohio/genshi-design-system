@@ -1,0 +1,416 @@
+{
+  "sfe": {
+    "typography": {
+      "font": {
+        "serif-font": {
+          "value": "Sora",
+          "type": "text"
+        },
+        "sans-font": {
+          "value": "Matter",
+          "type": "text"
+        },
+        "code-font": {
+          "value": "SF Mono",
+          "type": "text"
+        },
+        "mac-system": {
+          "value": "SF Pro Text",
+          "type": "text"
+        },
+        "android-system": {
+          "value": "Roboto",
+          "type": "text"
+        },
+        "windows-system": {
+          "value": "Segoe UI",
+          "type": "text"
+        },
+        "ios-system": {
+          "value": "SF Pro",
+          "type": "text"
+        },
+        "old-font": {
+          "value": "Rubik",
+          "type": "text"
+        }
+      },
+      "font-size": {
+        "body": {
+          "small": {
+            "value": "{dimension.binary.120}",
+            "type": "dimension"
+          },
+          "default": {
+            "value": "{dimension.binary.140}",
+            "type": "dimension"
+          },
+          "large": {
+            "value": "{dimension.binary.160}",
+            "type": "dimension"
+          },
+          "xlarge": {
+            "value": "{dimension.binary.200}",
+            "type": "dimension"
+          },
+          "xsmall": {
+            "value": "{dimension.binary.100}",
+            "type": "dimension"
+          }
+        },
+        "subtitle": {
+          "xsmall": {
+            "value": "{dimension.binary.140}",
+            "type": "dimension"
+          },
+          "small": {
+            "value": "{dimension.binary.160}",
+            "type": "dimension"
+          },
+          "default": {
+            "value": "{dimension.binary.200}",
+            "type": "dimension"
+          },
+          "large": {
+            "value": "{dimension.binary.240}",
+            "type": "dimension"
+          },
+          "xlarge": {
+            "value": "{dimension.binary.320}",
+            "type": "dimension"
+          }
+        },
+        "label": {
+          "xsmall": {
+            "value": "{dimension.binary.100}",
+            "type": "dimension"
+          },
+          "small": {
+            "value": "{dimension.binary.120}",
+            "type": "dimension"
+          },
+          "default": {
+            "value": "{dimension.binary.140}",
+            "type": "dimension"
+          },
+          "large": {
+            "value": "{dimension.binary.160}",
+            "type": "dimension"
+          },
+          "xlarge": {
+            "value": "{dimension.binary.180}",
+            "type": "dimension"
+          }
+        },
+        "heading": {
+          "small": {
+            "value": "{dimension.binary.160}",
+            "type": "dimension"
+          },
+          "large": {
+            "value": "{dimension.binary.240}",
+            "type": "dimension"
+          },
+          "xlarge": {
+            "value": "{dimension.binary.320}",
+            "type": "dimension"
+          },
+          "xxlarge": {
+            "value": "{dimension.binary.480}",
+            "type": "dimension"
+          },
+          "xxxlarge": {
+            "value": "{dimension.binary.520}",
+            "type": "dimension"
+          },
+          "medium": {
+            "value": "{dimension.binary.200}",
+            "type": "dimension"
+          }
+        },
+        "caption": {
+          "xsmall": {
+            "value": "{dimension.binary.100}",
+            "type": "dimension"
+          },
+          "default": {
+            "value": "{dimension.binary.120}",
+            "type": "dimension"
+          },
+          "large": {
+            "value": "{dimension.binary.140}",
+            "type": "dimension"
+          },
+          "xlarge": {
+            "value": "{dimension.binary.160}",
+            "type": "dimension"
+          },
+          "xxlarge": {
+            "value": "{dimension.binary.180}",
+            "type": "dimension"
+          }
+        },
+        "display": {
+          "small": {
+            "value": "{dimension.binary.720}",
+            "type": "dimension"
+          },
+          "medium": {
+            "value": "{dimension.binary.800}",
+            "type": "dimension"
+          },
+          "large": {
+            "value": "{dimension.binary.880}",
+            "type": "dimension"
+          },
+          "xlarge": {
+            "value": "{dimension.binary.920}",
+            "type": "dimension"
+          },
+          "xxlarge": {
+            "value": "{dimension.binary.960}",
+            "type": "dimension"
+          },
+          "xxxlarge": {
+            "value": "{dimension.binary.980}",
+            "type": "dimension"
+          }
+        }
+      },
+      "space": {
+        "letter": {
+          "10": {
+            "value": "{dimension.binary.10}",
+            "type": "dimension"
+          },
+          "15": {
+            "value": "{dimension.binary.15}",
+            "type": "dimension"
+          },
+          "20": {
+            "value": "{dimension.binary.20}",
+            "type": "dimension"
+          },
+          "25": {
+            "value": "{dimension.binary.25}",
+            "type": "dimension"
+          },
+          "30": {
+            "value": "{dimension.binary.30}",
+            "type": "dimension"
+          },
+          "35": {
+            "value": "{dimension.binary.35}",
+            "type": "dimension"
+          },
+          "40": {
+            "value": "{dimension.binary.40}",
+            "type": "dimension"
+          },
+          "null": {
+            "value": "{dimension.binary.0}",
+            "type": "dimension"
+          },
+          "05": {
+            "value": "{dimension.binary.05}",
+            "type": "dimension"
+          }
+        },
+        "list": {
+          "null": {
+            "value": "{dimension.binary.0}",
+            "type": "dimension"
+          },
+          "small": {
+            "value": "{dimension.binary.40}",
+            "type": "dimension"
+          },
+          "medium": {
+            "value": "{dimension.binary.80}",
+            "type": "dimension"
+          }
+        },
+        "paragraph": {
+          "10": {
+            "value": "{dimension.binary.10}",
+            "type": "dimension"
+          },
+          "15": {
+            "value": "{dimension.binary.15}",
+            "type": "dimension"
+          },
+          "20": {
+            "value": "{dimension.binary.20}",
+            "type": "dimension"
+          },
+          "25": {
+            "value": "{dimension.binary.25}",
+            "type": "dimension"
+          },
+          "30": {
+            "value": "{dimension.binary.30}",
+            "type": "dimension"
+          },
+          "35": {
+            "value": "{dimension.binary.35}",
+            "type": "dimension"
+          },
+          "40": {
+            "value": "{dimension.binary.40}",
+            "type": "dimension"
+          },
+          "null": {
+            "value": "{dimension.binary.0}",
+            "type": "dimension"
+          },
+          "05": {
+            "value": "{dimension.binary.05}",
+            "type": "dimension"
+          }
+        }
+      },
+      "line-height": {
+        "heading": {
+          "small": {
+            "value": "{dimension.binary.240}",
+            "type": "dimension"
+          },
+          "medium": {
+            "value": "{dimension.binary.320}",
+            "type": "dimension"
+          },
+          "large": {
+            "value": "{dimension.binary.400}",
+            "type": "dimension"
+          },
+          "xlarge": {
+            "value": "{dimension.binary.480}",
+            "type": "dimension"
+          },
+          "xxlarge": {
+            "value": "{dimension.binary.520}",
+            "type": "dimension"
+          },
+          "xxxlarge": {
+            "value": "{dimension.binary.640}",
+            "type": "dimension"
+          }
+        },
+        "body": {
+          "xsmall": {
+            "value": "{dimension.binary.160}",
+            "type": "dimension"
+          },
+          "small": {
+            "value": "{dimension.binary.160}",
+            "type": "dimension"
+          },
+          "default": {
+            "value": "{dimension.binary.240}",
+            "type": "dimension"
+          },
+          "large": {
+            "value": "{dimension.binary.240}",
+            "type": "dimension"
+          },
+          "xlarge": {
+            "value": "{dimension.binary.320}",
+            "type": "dimension"
+          }
+        },
+        "subtitle": {
+          "xsmall": {
+            "value": "{dimension.binary.160}",
+            "type": "dimension"
+          },
+          "small": {
+            "value": "{dimension.binary.200}",
+            "type": "dimension"
+          },
+          "default": {
+            "value": "{dimension.binary.240}",
+            "type": "dimension"
+          },
+          "large": {
+            "value": "{dimension.binary.280}",
+            "type": "dimension"
+          },
+          "xlarge": {
+            "value": "{dimension.binary.360}",
+            "type": "dimension"
+          }
+        },
+        "label": {
+          "xsmall": {
+            "value": "{dimension.binary.140}",
+            "type": "dimension"
+          },
+          "small": {
+            "value": "{dimension.binary.160}",
+            "type": "dimension"
+          },
+          "default": {
+            "value": "{dimension.binary.200}",
+            "type": "dimension"
+          },
+          "large": {
+            "value": "{dimension.binary.240}",
+            "type": "dimension"
+          },
+          "xlarge": {
+            "value": "{dimension.binary.280}",
+            "type": "dimension"
+          }
+        },
+        "caption": {
+          "xsmall": {
+            "value": "{dimension.binary.120}",
+            "type": "dimension"
+          },
+          "small": {
+            "value": "{dimension.binary.160}",
+            "type": "dimension"
+          },
+          "default": {
+            "value": "{dimension.binary.160}",
+            "type": "dimension"
+          },
+          "large": {
+            "value": "{dimension.binary.200}",
+            "type": "dimension"
+          },
+          "xlarge": {
+            "value": "{dimension.binary.200}",
+            "type": "dimension"
+          }
+        },
+        "display": {
+          "small": {
+            "value": "{dimension.binary.720}",
+            "type": "dimension"
+          },
+          "medium": {
+            "value": "{dimension.binary.800}",
+            "type": "dimension"
+          },
+          "large": {
+            "value": "{dimension.binary.880}",
+            "type": "dimension"
+          },
+          "xlarge": {
+            "value": "{dimension.binary.920}",
+            "type": "dimension"
+          },
+          "xxlarge": {
+            "value": "{dimension.binary.960}",
+            "type": "dimension"
+          },
+          "xxxlarge": {
+            "value": "{dimension.binary.980}",
+            "type": "dimension"
+          }
+        }
+      }
+    }
+  }
+}

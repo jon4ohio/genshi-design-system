@@ -1,44 +1,66 @@
 # SeamKit → Genshi Adaptation
 
-Genshi adapts [SeamKit](https://seamkit.com) (Figma UI + Tokens) as its Phase 1 reference design language.
+Genshi adapts [SeamKit](https://seamkit.com) (Figma UI + Tokens) as its Phase 1 reference design language. Adaptation happens **once** during recreation—not at runtime.
 
-## Namespace
+## Pipeline
 
-| SeamKit | Genshi |
-|---------|--------|
-| `--sfe-*` | `--gsh-*` (canonical public API) |
+```text
+tokens/vendor/seamkit/   (read-only vendor export)
+        ↓
+scripts/recreate-genshi-tokens.mjs
+        ↓
+tokens/source/genshi/    (canonical Genshi DTCG)
+        ↓
+packages/tokens/build.mjs → --gsh-* CSS
+```
 
-Both namespaces are emitted during migration; consumers should use `--gsh-*`.
+## Vendor → Genshi mappings
 
-## Token layer mapping
+| SeamKit (vendor) | Genshi (public) |
+|------------------|-----------------|
+| `sfe` root | `gsh` root |
+| `color.non-semantic.*` | `color.decorative.*` |
+| `avater` (typo) | `avatar` |
+| `primitive.json` | `core.json` |
 
-| SeamKit folder | Genshi layer |
-|----------------|--------------|
-| `.primitive/` | Core |
-| `color/` | Intent |
-| `component/` | Component |
+Do **not** edit `tokens/vendor/seamkit/` — regenerate canonical source with:
+
+```bash
+node scripts/recreate-genshi-tokens.mjs
+```
+
+## Architectural layer mapping (documentation)
+
+| Vendor export | Genshi layer |
+|---------------|--------------|
+| `primitive.json` | Core |
+| `color.json` | Intent (token domains) |
+| `sizing.json`, `typography.json` | Intent-adjacent domains |
+| `component.json` | Component |
+
+## Token domain taxonomy
+
+Public paths use **token domains**, not layer names:
+
+```text
+gsh.color.text.…
+gsh.color.fill.…
+gsh.color.decorative.…
+```
+
+Never `gsh.color.intent.…` in public API.
 
 ## Figma sources
 
 - **Tokens:** `IafiBqd0CR4UyN6WgnnLiR`
 - **UI:** `1mpwO1oRCJG6tOrXIZpr5w`
 
-## Figma / Southleft mapping
-
-When exporting from SeamKit Figma via Southleft MCP, map collections to Genshi layers:
-
-| Figma / SeamKit export | Genshi layer |
-|------------------------|--------------|
-| Primitive collections | Core |
-| Color / semantic color collections | **Intent** |
-| Component-specific variables | Component |
-
-Do not rename SeamKit Figma variables to "Intent" — the adaptation happens at build and documentation boundaries. Genshi-authored docs always say **Intent**, never "Semantic layer" or "Decision tokens".
+When exporting from Figma via Tokens Studio, import Genshi JSON from `tokens/source/genshi/` (five files + `$metadata.json`).
 
 ## Principles
 
 1. Preserve visual intent
-2. Improve developer ergonomics
-3. Own the implementation
+2. Vendor vocabulary stays in `tokens/vendor/` only
+3. Own the implementation (`gsh` namespace, decorative domain)
 
-See [tokens/README.md](tokens/README.md) for pipeline details.
+See [tokens/README.md](tokens/README.md) and [ADR-0009](docs/adr/ADR-0009-Architecture-Taxonomy-Adaptation.md).

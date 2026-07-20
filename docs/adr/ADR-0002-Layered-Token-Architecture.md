@@ -6,6 +6,8 @@
 **Decision Maker(s):** Genshi maintainers
 **Supersedes:** None
 
+**Clarified by:** [ADR-0009](ADR-0009-Architecture-Taxonomy-Adaptation.md) (Phase 2.1) — token taxonomy, Decorative domain, canonical `tokens/source/genshi/`, and vendor adaptation boundaries.
+
 ## Context
 
 Genshi requires a token model that separates immutable primitives from design language and component styling contracts. SeamKit (Phase 1 reference) exports tokens in folders that map naturally to three Genshi layers. Contributors need one vocabulary for the middle layer before public release.
@@ -92,6 +94,7 @@ The middle layer is **Intent Tokens**. SeamKit folder mapping:
 
 ## Related ADRs
 
+- ADR-0009 — Architecture vs taxonomy vs adaptation (Phase 2.1 governance)
 - ADR-0003 — Platform Architecture (package graph)
 - ADR-0005 — Theme Architecture (component token resolution)
 

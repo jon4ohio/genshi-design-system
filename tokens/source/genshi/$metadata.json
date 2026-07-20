@@ -1,0 +1,9 @@
+{
+  "tokenSetOrder": [
+    "core",
+    "color",
+    "sizing",
+    "typography",
+    "component"
+  ]
+}
