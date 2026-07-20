@@ -1,0 +1,27 @@
+{
+  "_meta": {
+    "canonicalMiddleLayer": "Intent",
+    "rejectedLayerNames": {
+      "Semantic": "SeamKit vendor paths only (e.g. non-semantic colors); not a Genshi layer label",
+      "Decision": "ADR and governance vocabulary only; not a token layer name"
+    }
+  },
+  "layers": {
+    "Core": {
+      "question": "What primitives do we have?",
+      "example": "blue.500, space.4",
+      "seamkitSourceFolders": [".primitive"]
+    },
+    "Intent": {
+      "question": "What is the design intent?",
+      "example": "text.default, action.primary",
+      "seamkitSourceFolders": ["color"]
+    },
+    "Component": {
+      "question": "How does this component use intent?",
+      "example": "button.primary.background",
+      "seamkitSourceFolders": ["component", "sizing", "composite", ".typography", ".effect"]
+    }
+  },
+  "tokenMappingsFile": "tokens.json"
+}

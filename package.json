@@ -1,0 +1,35 @@
+{
+  "name": "genshi-design-system",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Genshi Design System — public OSS platform",
+  "workspaces": [
+    "packages/*",
+    "examples/*"
+  ],
+  "scripts": {
+    "build:tokens": "npm run build -w @genshi/tokens",
+    "build:foundation": "npm run build -w @genshi/foundation",
+    "build:themes": "npm run build -w @genshi/themes",
+    "build:core": "npm run build -w @genshi/core",
+    "build:react": "npm run build -w @genshi/react",
+    "build": "npm run build:tokens && npm run build:foundation && npm run build:themes && npm run build:core && npm run build:react",
+    "test": "npm run test -w @genshi/foundation && npm run test -w @genshi/core && npm run test -w @genshi/react",
+    "lint": "npm run lint -w @genshi/config --if-present || true",
+    "validate": "node scripts/validate-terminology.mjs && node scripts/validate-boundaries.mjs",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "dev": "npm run dev -w employee-directory",
+    "changeset": "changeset"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.27.0",
+    "@storybook/addon-a11y": "^8.6.0",
+    "@storybook/addon-docs": "^8.6.0",
+    "@storybook/web-components-vite": "^8.6.0",
+    "jsdom": "^26.0.0",
+    "storybook": "^8.6.0",
+    "typescript": "^5.7.0",
+    "vite": "^6.0.0"
+  }
+}

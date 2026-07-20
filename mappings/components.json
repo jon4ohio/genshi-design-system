@@ -1,0 +1,156 @@
+{
+  "Text": {
+    "gshId": "gsh.text",
+    "reactComponent": "Text",
+    "seamkitComponent": "Text",
+    "conformance": {
+      "tokensMapped": true,
+      "propsDefined": true,
+      "accessibility": true,
+      "storybook": true,
+      "tests": true,
+      "figmaParity": true,
+      "documentation": true
+    }
+  },
+  "Box": {
+    "gshId": "gsh.box",
+    "reactComponent": "Box",
+    "seamkitComponent": "Box",
+    "conformance": {
+      "tokensMapped": true,
+      "propsDefined": true,
+      "accessibility": true,
+      "storybook": true,
+      "tests": true,
+      "figmaParity": true,
+      "documentation": true
+    }
+  },
+  "Stack": {
+    "gshId": "gsh.stack",
+    "reactComponent": "Stack",
+    "seamkitComponent": "Stack",
+    "conformance": {
+      "tokensMapped": true,
+      "propsDefined": true,
+      "accessibility": true,
+      "storybook": true,
+      "tests": true,
+      "figmaParity": true,
+      "documentation": true
+    }
+  },
+  "Button": {
+    "gshId": "gsh.button",
+    "reactComponent": "Button",
+    "seamkitComponent": "Button",
+    "conformance": {
+      "tokensMapped": true,
+      "propsDefined": true,
+      "accessibility": true,
+      "storybook": true,
+      "tests": true,
+      "figmaParity": true,
+      "documentation": true
+    }
+  },
+  "Input": {
+    "gshId": "gsh.input",
+    "reactComponent": "Input",
+    "seamkitComponent": "Input field",
+    "conformance": {
+      "tokensMapped": true,
+      "propsDefined": true,
+      "accessibility": true,
+      "storybook": true,
+      "tests": true,
+      "figmaParity": true,
+      "documentation": true
+    }
+  },
+  "Badge": {
+    "gshId": "gsh.badge",
+    "reactComponent": "Badge",
+    "seamkitComponent": "Badge",
+    "conformance": {
+      "tokensMapped": true,
+      "propsDefined": true,
+      "accessibility": true,
+      "storybook": true,
+      "tests": true,
+      "figmaParity": true,
+      "documentation": true
+    }
+  },
+  "Icon": {
+    "gshId": "gsh.icon",
+    "reactComponent": "Icon",
+    "seamkitComponent": "Icon",
+    "conformance": {
+      "tokensMapped": true,
+      "propsDefined": true,
+      "accessibility": true,
+      "storybook": true,
+      "tests": true,
+      "figmaParity": true,
+      "documentation": true
+    }
+  },
+  "Select": {
+    "gshId": "gsh.select",
+    "reactComponent": "Select",
+    "seamkitComponent": "Select",
+    "conformance": {
+      "tokensMapped": true,
+      "propsDefined": true,
+      "accessibility": true,
+      "storybook": true,
+      "tests": false,
+      "figmaParity": false,
+      "documentation": true
+    }
+  },
+  "Checkbox": {
+    "gshId": "gsh.checkbox",
+    "reactComponent": "Checkbox",
+    "seamkitComponent": "Checkbox",
+    "conformance": {
+      "tokensMapped": true,
+      "propsDefined": true,
+      "accessibility": true,
+      "storybook": true,
+      "tests": false,
+      "figmaParity": false,
+      "documentation": true
+    }
+  },
+  "Dialog": {
+    "gshId": "gsh.dialog",
+    "reactComponent": "Dialog",
+    "seamkitComponent": "Dialog",
+    "conformance": {
+      "tokensMapped": true,
+      "propsDefined": true,
+      "accessibility": true,
+      "storybook": true,
+      "tests": false,
+      "figmaParity": false,
+      "documentation": true
+    }
+  },
+  "Table": {
+    "gshId": "gsh.table",
+    "reactComponent": "Table",
+    "seamkitComponent": "Table",
+    "conformance": {
+      "tokensMapped": true,
+      "propsDefined": true,
+      "accessibility": true,
+      "storybook": true,
+      "tests": false,
+      "figmaParity": false,
+      "documentation": true
+    }
+  }
+}

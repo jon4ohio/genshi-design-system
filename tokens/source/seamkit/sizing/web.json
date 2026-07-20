@@ -1,0 +1,208 @@
+{
+  "sfe": {
+    "sizing": {
+      "gap": {
+        "null": {
+          "$type": "dimension",
+          "$value": "{dimension.binary.0}"
+        },
+        "xxsmall": {
+          "$type": "dimension",
+          "$value": "{dimension.binary.20}"
+        },
+        "xsmall": {
+          "$type": "dimension",
+          "$value": "{dimension.binary.40}"
+        },
+        "small": {
+          "$type": "dimension",
+          "$value": "{dimension.binary.80}"
+        },
+        "large": {
+          "$type": "dimension",
+          "$value": "{dimension.binary.160}"
+        },
+        "mid": {
+          "$type": "dimension",
+          "$value": "{dimension.binary.120}"
+        },
+        "xxlarge": {
+          "$type": "dimension",
+          "$value": "{dimension.binary.240}"
+        },
+        "xlarge": {
+          "$type": "dimension",
+          "$value": "{dimension.binary.200}"
+        }
+      },
+      "border": {
+        "150": {
+          "$type": "dimension",
+          "$value": "{dimension.binary.15}"
+        },
+        "200": {
+          "$type": "dimension",
+          "$value": "{dimension.binary.20}"
+        },
+        "250": {
+          "$type": "dimension",
+          "$value": "{dimension.binary.25}"
+        },
+        "400": {
+          "$type": "dimension",
+          "$value": "{dimension.binary.40}"
+        },
+        "null": {
+          "$type": "dimension",
+          "$value": "{dimension.binary.0}"
+        },
+        "thin": {
+          "$type": "dimension",
+          "$value": "{dimension.binary.05}"
+        },
+        "default": {
+          "$type": "dimension",
+          "$value": "{dimension.binary.10}"
+        }
+      },
+      "radius": {
+        "null": {
+          "$type": "dimension",
+          "$value": "{dimension.binary.0}"
+        },
+        "xsmall": {
+          "$type": "dimension",
+          "$value": "{dimension.binary.20}"
+        },
+        "small": {
+          "$type": "dimension",
+          "$value": "{dimension.binary.40}"
+        },
+        "default": {
+          "$type": "dimension",
+          "$value": "{dimension.binary.80}"
+        },
+        "large": {
+          "$type": "dimension",
+          "$value": "{dimension.binary.120}"
+        },
+        "xlarge": {
+          "$type": "dimension",
+          "$value": "{dimension.binary.160}"
+        },
+        "round": {
+          "$type": "dimension",
+          "$value": "{dimension.binary.Infinity}"
+        }
+      },
+      "padding": {
+        "null": {
+          "$type": "dimension",
+          "$value": "{dimension.binary.0}"
+        },
+        "xxsmall": {
+          "$type": "dimension",
+          "$value": "{dimension.binary.20}"
+        },
+        "xsmall": {
+          "$type": "dimension",
+          "$value": "{dimension.binary.40}"
+        },
+        "small": {
+          "$type": "dimension",
+          "$value": "{dimension.binary.80}"
+        },
+        "mid": {
+          "$type": "dimension",
+          "$value": "{dimension.binary.120}"
+        },
+        "default": {
+          "$type": "dimension",
+          "$value": "{dimension.binary.160}"
+        },
+        "large": {
+          "$type": "dimension",
+          "$value": "{dimension.binary.240}"
+        },
+        "xlarge": {
+          "$type": "dimension",
+          "$value": "{dimension.binary.320}"
+        }
+      },
+      "size": {
+        "120": {
+          "$type": "dimension",
+          "$value": "{dimension.binary.120}"
+        },
+        "160": {
+          "$type": "dimension",
+          "$value": "{dimension.binary.160}"
+        },
+        "200": {
+          "$type": "dimension",
+          "$value": "{dimension.binary.200}"
+        },
+        "240": {
+          "$type": "dimension",
+          "$value": "{dimension.binary.240}"
+        },
+        "280": {
+          "$type": "dimension",
+          "$value": "{dimension.binary.280}"
+        },
+        "320": {
+          "$type": "dimension",
+          "$value": "{dimension.binary.320}"
+        },
+        "360": {
+          "$type": "dimension",
+          "$value": "{dimension.binary.360}"
+        },
+        "400": {
+          "$type": "dimension",
+          "$value": "{dimension.binary.400}"
+        },
+        "440": {
+          "$type": "dimension",
+          "$value": "{dimension.binary.440}"
+        },
+        "480": {
+          "$type": "dimension",
+          "$value": "{dimension.binary.480}"
+        },
+        "560": {
+          "$type": "dimension",
+          "$value": "{dimension.binary.560}"
+        },
+        "640": {
+          "$type": "dimension",
+          "$value": "{dimension.binary.640}"
+        },
+        "720": {
+          "$type": "dimension",
+          "$value": "{dimension.binary.720}"
+        },
+        "1200": {
+          "$type": "dimension",
+          "$value": "{dimension.binary.1200}"
+        },
+        "null": {
+          "$type": "dimension",
+          "$value": "{dimension.binary.0}"
+        },
+        "020": {
+          "$type": "dimension",
+          "$value": "{dimension.binary.20}"
+        },
+        "040": {
+          "$type": "dimension",
+          "$value": "{dimension.binary.40}"
+        },
+        "080": {
+          "$type": "dimension",
+          "$value": "{dimension.binary.80}"
+        }
+      }
+    }
+  }
+}

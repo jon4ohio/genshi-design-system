@@ -1,0 +1,19 @@
+{
+  "name": "@genshi/themes",
+  "version": "0.2.0",
+  "description": "Genshi theme resolution — maps component tokens for active brand/mode",
+  "type": "module",
+  "exports": {
+    "./seamkit-default": "./dist/seamkit-default.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "node build.mjs",
+    "prepack": "npm run build"
+  },
+  "dependencies": {
+    "@genshi/tokens": "*"
+  }
+}

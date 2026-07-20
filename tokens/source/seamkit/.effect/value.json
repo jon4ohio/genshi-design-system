@@ -1,0 +1,160 @@
+{
+  "sfe": {
+    "shadow": {
+      "small": {
+        "offset-x": {
+          "$type": "dimension",
+          "$value": "0px"
+        },
+        "blur": {
+          "$type": "dimension",
+          "$value": "0px"
+        },
+        "spread": {
+          "$type": "dimension",
+          "$value": "0px"
+        },
+        "color": {
+          "$type": "dimension",
+          "$value": "0px"
+        },
+        "offset-y": {
+          "$type": "dimension",
+          "$value": "0px"
+        }
+      },
+      "medium": {
+        "offset-x": {
+          "$type": "dimension",
+          "$value": "0px"
+        },
+        "blur": {
+          "$type": "dimension",
+          "$value": "0px"
+        },
+        "spread": {
+          "$type": "dimension",
+          "$value": "0px"
+        },
+        "color": {
+          "$type": "dimension",
+          "$value": "0px"
+        },
+        "offset-y": {
+          "$type": "dimension",
+          "$value": "0px"
+        }
+      },
+      "xxlarge": {
+        "offset-x": {
+          "$type": "dimension",
+          "$value": "0px"
+        },
+        "blur": {
+          "$type": "dimension",
+          "$value": "0px"
+        },
+        "spread": {
+          "$type": "dimension",
+          "$value": "0px"
+        },
+        "color": {
+          "$type": "dimension",
+          "$value": "0px"
+        },
+        "offset-y": {
+          "$type": "dimension",
+          "$value": "0px"
+        }
+      },
+      "inner": {
+        "offset-x": {
+          "$type": "dimension",
+          "$value": "0px"
+        },
+        "blur": {
+          "$type": "dimension",
+          "$value": "0px"
+        },
+        "spread": {
+          "$type": "dimension",
+          "$value": "0px"
+        },
+        "color": {
+          "$type": "dimension",
+          "$value": "0px"
+        },
+        "offset-y": {
+          "$type": "dimension",
+          "$value": "0px"
+        }
+      },
+      "focus-ring": {
+        "offset-x": {
+          "$type": "dimension",
+          "$value": "0px"
+        },
+        "blur": {
+          "$type": "dimension",
+          "$value": "0px"
+        },
+        "spread": {
+          "$type": "dimension",
+          "$value": "0px"
+        },
+        "color": {
+          "$type": "dimension",
+          "$value": "0px"
+        },
+        "offset-y": {
+          "$type": "dimension",
+          "$value": "0px"
+        }
+      },
+      "large": {
+        "offset-x": {
+          "$type": "dimension",
+          "$value": "0px"
+        },
+        "blur": {
+          "$type": "dimension",
+          "$value": "0px"
+        },
+        "spread": {
+          "$type": "dimension",
+          "$value": "0px"
+        },
+        "color": {
+          "$type": "dimension",
+          "$value": "0px"
+        },
+        "offset-y": {
+          "$type": "dimension",
+          "$value": "0px"
+        }
+      },
+      "xlarge": {
+        "offset-x": {
+          "$type": "dimension",
+          "$value": "0px"
+        },
+        "blur": {
+          "$type": "dimension",
+          "$value": "0px"
+        },
+        "spread": {
+          "$type": "dimension",
+          "$value": "0px"
+        },
+        "color": {
+          "$type": "dimension",
+          "$value": "0px"
+        },
+        "offset-y": {
+          "$type": "dimension",
+          "$value": "0px"
+        }
+      }
+    }
+  }
+}

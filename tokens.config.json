@@ -1,0 +1,11 @@
+{
+  "figmaFiles": {
+    "tokens": "IafiBqd0CR4UyN6WgnnLiR",
+    "ui": "1mpwO1oRCJG6tOrXIZpr5w"
+  },
+  "export": {
+    "format": "tokens-studio",
+    "outputDir": "tokens/source/seamkit"
+  },
+  "snapshot": "reference/seamkit.snapshot.json"
+}

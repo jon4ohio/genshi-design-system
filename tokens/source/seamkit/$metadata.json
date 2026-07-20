@@ -1,0 +1,14 @@
+{
+  "tokenSetOrder": [
+    ".primitive/default",
+    ".primitive/custom",
+    "color/value",
+    "sizing/web",
+    "sizing/mobile",
+    "component/web",
+    "component/mobile",
+    ".typography/web",
+    "composite/typography",
+    ".effect/value"
+  ]
+}

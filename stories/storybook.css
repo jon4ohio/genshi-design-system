@@ -1,0 +1,9 @@
+:root {
+  font-family: var(--body-default-regular-font-family, system-ui, sans-serif);
+  color: var(--gsh-color-text-primary);
+  background: var(--gsh-color-surface-default);
+}
+
+body {
+  margin: 0;
+}

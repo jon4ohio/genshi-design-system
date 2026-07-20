@@ -1,0 +1,21 @@
+{
+  "name": "@genshi/foundation",
+  "version": "0.2.0",
+  "description": "Theme-agnostic accessibility, focus, keyboard, and interaction utilities",
+  "type": "module",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@genshi/config": "*",
+    "typescript": "^5.7.0",
+    "vitest": "^3.0.0"
+  }
+}

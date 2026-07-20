@@ -1,0 +1,22 @@
+{
+  "name": "@genshi/tokens",
+  "version": "0.2.0",
+  "description": "Genshi token build pipeline and generated CSS/TS outputs",
+  "type": "module",
+  "exports": {
+    ".": "./dist/tokens.ts",
+    "./css": "./dist/tokens.css",
+    "./tailwind": "./dist/tailwind-preset.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "node build.mjs",
+    "prepack": "npm run build"
+  },
+  "devDependencies": {
+    "@tokens-studio/sd-transforms": "^1.2.0",
+    "style-dictionary": "^4.3.0"
+  }
+}

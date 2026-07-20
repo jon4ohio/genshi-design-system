@@ -1,0 +1,27 @@
+{
+  "name": "@genshi/core",
+  "version": "0.2.0",
+  "description": "Canonical Lit web components (gsh-*) for Genshi Design System",
+  "type": "module",
+  "exports": {
+    ".": "./dist/index.js",
+    "./define": "./dist/define.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@genshi/foundation": "*",
+    "lit": "^3.2.0"
+  },
+  "devDependencies": {
+    "@genshi/config": "*",
+    "typescript": "^5.7.0",
+    "vitest": "^3.0.0",
+    "@open-wc/testing-helpers": "^3.0.0"
+  }
+}
