@@ -3,8 +3,8 @@
 ## Architecture (read first)
 
 1. [ARCHITECTURE.md](../ARCHITECTURE.md) — frozen boundaries
-2. [docs/adr/index.md](../docs/adr/index.md) — Accepted ADRs 0001–0008
-3. [tokens/README.md](../tokens/README.md) — Core → **Intent** → Component
+2. [docs/adr/index.md](../docs/adr/index.md) — Accepted ADRs 0001–0009
+3. [tokens/README.md](../tokens/README.md) — Core → **Intent** → Component; token domains in public paths
 
 Run `npm run validate` before opening a PR.
 
@@ -22,13 +22,13 @@ npm run storybook
 
 ## Token layer rules
 
-| Layer | Name | Components may reference? |
-|-------|------|---------------------------|
-| Core | `.primitive/` | **No** |
-| Intent | `color/` (SeamKit) | **No** |
-| Component | `component/` | **Yes** — via `--gsh-*` component tokens |
+| Layer | Source | Components may reference? |
+|-------|--------|---------------------------|
+| Core | `tokens/source/genshi/core.json` | **No** |
+| Intent | `color.json`, `sizing.json`, `typography.json` | **No** — use token domains (`text`, `fill`, `decorative`, …) in paths, not the word "Intent" |
+| Component | `component.json` | **Yes** — via `--gsh-*` component tokens |
 
-**Intent** is the canonical middle layer name. Do not use "Semantic layer" or "Decision tokens" in docs, Storybook, or code comments.
+**Intent** is the architectural middle layer. **Token domains** are the public API within Intent (`gsh.color.text…`, `gsh.color.decorative…`). Do not use "Semantic layer" or "Decision tokens" in docs, Storybook, or code comments.
 
 ## Package boundaries
 

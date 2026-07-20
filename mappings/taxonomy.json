@@ -1,0 +1,23 @@
+{
+  "_meta": {
+    "layer": "Intent",
+    "publicApi": true,
+    "note": "Authoritative public token taxonomy. Architectural layer names are not path segments."
+  },
+  "domains": {
+    "color": [
+      "text",
+      "fill",
+      "border",
+      "interaction",
+      "icon",
+      "decorative"
+    ],
+    "sizing": ["gap", "padding", "radius", "border", "size"],
+    "typography": ["font", "font-size", "line-height", "space"]
+  },
+  "vendorMappings": {
+    "sfe.color.non-semantic": "gsh.color.decorative",
+    "sfe": "gsh"
+  }
+}

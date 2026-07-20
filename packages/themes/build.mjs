@@ -45,7 +45,7 @@ const componentTokens = `
 `;
 
 const css = `/**
- * SeamKit default theme — resolves Genshi component tokens for web.
+ * Genshi default theme — resolves component tokens for web.
  * Import @genshi/tokens/css before this file.
  */
 :root {

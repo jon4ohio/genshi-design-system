@@ -55,7 +55,7 @@ npm run storybook
 | Component contract | **Component** | `component/` |
 
 **Not Genshi layer names:**
-- **Semantic** — appears only in SeamKit vendor paths (e.g. `non-semantic` colors)
+- **Semantic** — vendor-only term; see [ADAPTATION.md](ADAPTATION.md) for vendor → Genshi mapping
 - **Decision** — reserved for ADR/governance vocabulary, not tokens
 
 See [ADR-0002](docs/adr/ADR-0002-Layered-Token-Architecture.md) and [ARCHITECTURE.md](ARCHITECTURE.md).

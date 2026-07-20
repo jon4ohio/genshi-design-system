@@ -10,5 +10,6 @@
 | [0006](ADR-0006-Foundation-Principles.md) | Foundation Principles | Accepted |
 | [0007](ADR-0007-Framework-Adapter-Strategy.md) | Framework Adapter Strategy | Accepted |
 | [0008](ADR-0008-Repository-Separation.md) | Repository Separation | Accepted |
+| [0009](ADR-0009-Architecture-Taxonomy-Adaptation.md) | Architecture, Taxonomy, and Adaptation | Accepted |
 
 Architecture summary: [ARCHITECTURE.md](../ARCHITECTURE.md)
