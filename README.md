@@ -62,10 +62,12 @@ See [ADR-0002](docs/adr/ADR-0002-Layered-Token-Architecture.md) and [ARCHITECTUR
 
 ## Documentation
 
+- [Project Entry](docs/project/entry.md) — orientation and where truths live
 - [Architecture](ARCHITECTURE.md) — frozen package and token boundaries
-- [ADRs](docs/adr/) — architecture decisions (0001–0008)
+- [ADRs](docs/adr/) — architecture decisions (0001–0009)
 - [Token layers](tokens/README.md) — Core, Intent, Component mapping
 - [SeamKit adaptation](ADAPTATION.md)
+- [Handoff](ai/handoff.md) — session continuity
 
 ## License
 
