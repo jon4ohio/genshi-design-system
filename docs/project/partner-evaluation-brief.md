@@ -9,7 +9,7 @@
 Prove Genshi works as a **system** (not individual layers):
 
 1. Figma (SeamKit UI) → Genshi tokens → Lit `gsh-*` → Storybook → example app
-2. Optionally (separate claim): external `ds-runtime` resolve/explain of `gsh-*` entities
+2. Optionally (separate claim): external `ds-runtime` `resolve`/`explain` of bare names (e.g. `Button`) against this repo — prefer tool from the packed `ds-runtime-1.0.0.tgz`, not an in-repo dependency.
 
 ## How to consume
 
