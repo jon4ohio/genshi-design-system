@@ -45,27 +45,47 @@ export const spacing = {
   },
 } as const;
 
+/**
+ * Documentary reference for gsh-button's Component-tier token surface.
+ * Synced against Figma "Button" (node 3034:34227): variant = Solid/Faded/
+ * Bare/Outline/Ghost, intent = Brand/Critical/Neutral/Positive/Inverse
+ * (Figma's "Warning" intent has no generated tokens — see gsh-button.ts doc
+ * comment), size = Large/Mid/Small/Xsmall, shape = Boxed/Rounded.
+ * Full canonical `--gsh-btn-*` set lives in tokens/generated/css/tokens.css;
+ * this samples one representative axis (solid/brand) plus the shared
+ * sizing/shape tokens used across every variant+intent combination.
+ */
 export const buttonTokens = {
   fill: {
-    brand: {
-      default: 'var(--gsh-button-fill-brand-default)',
-      hover: 'var(--gsh-button-fill-brand-hover)',
-      pressed: 'var(--gsh-button-fill-brand-pressed)',
-    },
-    neutral: {
-      default: 'var(--gsh-button-fill-neutral-default)',
-      hover: 'var(--gsh-button-fill-neutral-hover)',
-      pressed: 'var(--gsh-button-fill-neutral-pressed)',
+    solidBrand: {
+      default: 'var(--gsh-btn-color-fill-solid-brand-default)',
+      hover: 'var(--gsh-btn-color-fill-solid-brand-hover)',
+      pressed: 'var(--gsh-btn-color-fill-solid-brand-pressed)',
     },
   },
-  content: 'var(--gsh-button-content-solid)',
+  content: {
+    solidDefault: 'var(--gsh-btn-color-content-solid-default)',
+    solidInverse: 'var(--gsh-btn-color-content-solid-inverse)',
+  },
+  sizeY: {
+    large: 'var(--gsh-btn-sizing-size-y-large)',
+    mid: 'var(--gsh-btn-sizing-size-y-mid)',
+    small: 'var(--gsh-btn-sizing-size-y-small)',
+    xsmall: 'var(--gsh-btn-sizing-size-y-xsmall)',
+  },
   paddingX: {
-    small: 'var(--gsh-button-padding-x-small)',
-    mid: 'var(--gsh-button-padding-x-mid)',
-    large: 'var(--gsh-button-padding-x-large)',
+    small: 'var(--gsh-btn-spacing-padding-x-small)',
+    mid: 'var(--gsh-btn-spacing-padding-x-mid)',
+    large: 'var(--gsh-btn-spacing-padding-x-large)',
+    xsmall: 'var(--gsh-btn-spacing-padding-x-xsmall)',
   },
-  paddingY: 'var(--gsh-button-padding-y-mid)',
-  radius: 'var(--gsh-button-radius-small)',
+  gap: 'var(--gsh-btn-spacing-gap-large)',
+  borderWidth: 'var(--gsh-btn-sizing-border-default)',
+  radius: {
+    boxedLarge: 'var(--gsh-btn-sizing-radius-large)',
+    boxedSmall: 'var(--gsh-btn-sizing-radius-small)',
+    rounded: 'var(--gsh-btn-sizing-radius-round)',
+  },
 } as const;
 
 export const inputTokens = {
