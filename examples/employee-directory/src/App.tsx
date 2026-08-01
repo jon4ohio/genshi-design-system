@@ -75,7 +75,7 @@ export function App() {
               Try a different search term or add a new team member.
             </Text>
             <div>
-              <Button variant="neutral" onClick={() => setQuery('')}>
+              <Button intent="neutral" onClick={() => setQuery('')}>
                 Clear search
               </Button>
             </div>
