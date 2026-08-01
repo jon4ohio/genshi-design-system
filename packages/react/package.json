@@ -1,6 +1,6 @@
 {
   "name": "@genshi/react",
-  "version": "0.2.0",
+  "version": "0.2.1-next.0",
   "description": "React adapters for @genshi/core — zero component logic",
   "type": "module",
   "exports": {
@@ -15,7 +15,7 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@genshi/core": "*",
+    "@genshi/core": "0.3.0-next.0",
     "@lit/react": "^1.0.0"
   },
   "peerDependencies": {

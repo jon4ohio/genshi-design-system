@@ -1,6 +1,6 @@
 {
   "name": "@genshi/core",
-  "version": "0.2.0",
+  "version": "0.3.0-next.0",
   "description": "Canonical Lit web components (gsh-*) for Genshi Design System",
   "type": "module",
   "exports": {

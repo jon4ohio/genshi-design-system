@@ -21,4 +21,4 @@ Components/*             gsh-* catalog
 Integrations/React/*     @genshi/react wrappers
 ```
 
-Published Storybook deploys from `storybook-static/` via GitHub Pages on release tags.
+Published Storybook deploys from `storybook-static/` via GitHub Pages on pushes to `main` (see `.github/workflows/ci.yml`).

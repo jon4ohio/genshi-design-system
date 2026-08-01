@@ -21,18 +21,28 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: npm run validate
-      - run: npm publish -w @genshi/tokens --access public
+      - name: Determine npm dist-tag
+        id: dist_tag
+        run: |
+          VER=$(sed -n 's/.*"version": "\([^"]*\)".*/\1/p' packages/core/package.json | head -1)
+          if [[ "$VER" == *-* ]]; then
+            echo "tag=next" >> "$GITHUB_OUTPUT"
+          else
+            echo "tag=latest" >> "$GITHUB_OUTPUT"
+          fi
+          echo "core@$VER → dist-tag selection complete"
+      - run: npm publish -w @genshi/tokens --access public --tag ${{ steps.dist_tag.outputs.tag }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - run: npm publish -w @genshi/foundation --access public
+      - run: npm publish -w @genshi/foundation --access public --tag ${{ steps.dist_tag.outputs.tag }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - run: npm publish -w @genshi/themes --access public
+      - run: npm publish -w @genshi/themes --access public --tag ${{ steps.dist_tag.outputs.tag }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - run: npm publish -w @genshi/core --access public
+      - run: npm publish -w @genshi/core --access public --tag ${{ steps.dist_tag.outputs.tag }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - run: npm publish -w @genshi/react --access public
+      - run: npm publish -w @genshi/react --access public --tag ${{ steps.dist_tag.outputs.tag }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

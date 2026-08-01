@@ -1,0 +1,20 @@
+{
+  "mode": "pre",
+  "tag": "next",
+  "initialVersions": {
+    "employee-directory": "0.1.0",
+    "@genshi/angular": "0.1.0",
+    "@genshi/config": "0.1.0",
+    "@genshi/core": "0.2.0",
+    "@genshi/docs": "0.1.0",
+    "@genshi/foundation": "0.2.0",
+    "@genshi/icons": "0.1.0",
+    "@genshi/react": "0.2.0",
+    "@genshi/themes": "0.2.0",
+    "@genshi/tokens": "0.2.0",
+    "@genshi/vue": "0.1.0"
+  },
+  "changesets": [
+    "import-seamkit-components"
+  ]
+}
