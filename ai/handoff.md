@@ -8,6 +8,8 @@
 
 ## Delta
 
+- **Post-pull re-orient (2026-08-01):** `main` already current with `origin/main` (Phase 2.1 / ADR-0009 present). Refreshed Entry ownership map (partner brief; AGENTS.md as interim host dispatch, not orientation output). Mutation topology recorded below.
+- **Mutation topology (2026-08-01):** This working tree has been mutated by multiple AI hosts (Cursor and Claude both ran `orientation@1` in the same short window earlier; Claude Code still has cwd here alongside Cursor). **Interim operational policy (manual only):** Only one operator may perform mutating operations against this shared checkout at a time. No lock mechanism exists yet; enforcement is deferred until concurrency work (if ever). Do not assume runtime protection.
 - **AI Consumption Validation (2026-08-01): PASS (bare-name + duplicate-ID bar)**
   - **ds-runtime fix** (canonical repo `/Users/mac/Development/demo-workspace/design-system-runtime` @ `b60c6e1`): `walkFiles` skips `node_modules`, `.git`, `dist`, `build`, `storybook-static`, `coverage`; implementation ranking prefers `packages/`; regression fixture `node-modules-pollution-ds` + tests.
   - **Evidence against Genshi root:**
