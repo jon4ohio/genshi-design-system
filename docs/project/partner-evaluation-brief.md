@@ -36,6 +36,18 @@ Button warning/focus-ring tokens; Input disabled via opacity; Select chevron (ic
 
 Please record: what broke, what was ambiguous, what you needed beyond the seven. Feedback feeds the go/no-go for **0.3 Stable** (not catalog unlock).
 
+### Facilitator: live attribution (during the session)
+
+The **session facilitator** tags observations **while observing**, not afterwards. Keep this table open live:
+
+| Observation | Contract | Confidence |
+|-------------|----------|------------|
+| | Anchor / Genshi / **Unattributed** | High / Medium / Low |
+
+- Assign **Contract** at capture time. Use **Unattributed** when unsure — do not force a fit.
+- Do not defer attribution to transcript review except to correct factual mistakes.
+- If unattributed rows become material (block deciding Anchor vs Genshi work), schedule a follow-up session designed to isolate that contract.
+
 ## Explicit non-goals during this evaluation
 
 Catalog expansion, Vue/Angular adapters, requiring `ds-runtime` inside the Genshi package graph.

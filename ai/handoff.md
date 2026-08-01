@@ -8,6 +8,7 @@
 
 ## Delta
 
+- **Post-ADR-007 P0 complete → STOP (2026-08-01):** Orientation checkpoint already on `main`; mutation topology recorded (shared Cursor/Claude tree — manual exclusivity only); pull was already up to date; re-orient refreshed Entry/Handoff. Anchor P1 contract bugs fixed in Anchor repo. **Stop engineering. Start learning** — partner observation with live attribution table in [partner-evaluation-brief.md](../docs/project/partner-evaluation-brief.md).
 - **Post-pull re-orient (2026-08-01):** `main` already current with `origin/main` (Phase 2.1 / ADR-0009 present). Refreshed Entry ownership map (partner brief; AGENTS.md as interim host dispatch, not orientation output). Mutation topology recorded below.
 - **Mutation topology (2026-08-01):** This working tree has been mutated by multiple AI hosts (Cursor and Claude both ran `orientation@1` in the same short window earlier; Claude Code still has cwd here alongside Cursor). **Interim operational policy (manual only):** Only one operator may perform mutating operations against this shared checkout at a time. No lock mechanism exists yet; enforcement is deferred until concurrency work (if ever). Do not assume runtime protection.
 - **AI Consumption Validation (2026-08-01): PASS (bare-name + duplicate-ID bar)**
