@@ -8,48 +8,57 @@
 
 ## Delta
 
-- **Prerelease cut (2026-08-01):** Changesets pre mode `next`; `@genshi/core@0.3.0-next.0`, `@genshi/react@0.2.1-next.0`; GitHub prerelease [v0.3.0-next.0](https://github.com/jon4ohio/genshi-design-system/releases/tag/v0.3.0-next.0); publish workflow uses `--tag next` for prerelease versions. npm registry publish blocked by foreign `@genshi` scope ownership.
-- **Release Readiness Review (2026-08-01): GO** for `0.3.0-next`. Checklist:
-  - Architecture frozen (`ARCHITECTURE.md`)
-  - ADRs frozen for this cut (0001–0009, including ADR-0009)
-  - Component catalog frozen (exemplary seven; CONTRIBUTING lock holds)
-  - Storybook stories present for Button, Badge, Input, Checkbox, Select, Dialog, Table (Figma sync already landed @ `b62d89e`)
-  - Breaking changes documented (`.changeset/import-seamkit-components.md` — Button/Badge `variant`/`intent`)
-  - **Accepted waivers (known limitations):** no Button `warning`/focus-ring vendor tokens; Input disabled approximated via opacity; Select chevron blocked on icons stub; Table rich cell types deferred; orphaned `input-control` vendor family deferred
-- **Anchor orientation committed (2026-08-01):** `29efcee` — Entry, Handoff, AGENTS.md, `.anchor/`
-- **Figma fidelity on origin (2026-08-01):** `b62d89e` — seven SeamKit-aligned components
+- **Product Validation — Reference Pipeline (2026-08-01): PASS (in-product)**
+  - Figma sync already on `main` @ `b62d89e`
+  - `recreate:tokens` + validate + build + 10 tests green
+  - `build-storybook` green (all seven Components stories present)
+  - `employee-directory` build green after fixing `Button variant="neutral"` → `intent="neutral"` (`d308fad`)
+  - **Claim:** Genshi is usable without ds-runtime
+- **External ds-runtime (2026-08-01): PARTIAL** — run from external pack (`Downloads/.../DS runtime`), **not** added as a Genshi dependency
+  - `resolve gsh-button|gsh-badge|…|gsh-table`: authoritative → `packages/core/src/gsh-*.ts` + `stories/Components/*`
+  - `explain gsh-button`: found / structural matches
+  - `doctor` / `validate`: FAIL (1076 issues; duplicate normalized IDs — indexer noise from `node_modules`, e.g. Storybook templates)
+  - Bare `resolve Button` incorrectly prefers Storybook/`node_modules` over Genshi — use `gsh-*` / `Gsh*` names until DS retrieval config/ignore lands
+  - **Claim:** AI can resolve authoritative Genshi components **when queried by Genshi identifiers**; full-repo validate is not green yet
+- **Prerelease cut (2026-08-01):** `@genshi/core@0.3.0-next.0`; GitHub prerelease [v0.3.0-next.0](https://github.com/jon4ohio/genshi-design-system/releases/tag/v0.3.0-next.0); publish workflow selects `--tag next` but CI publish failed (`NPM_TOKEN` empty) and registry `@genshi/core|react` owned by unrelated project
+- **Release Readiness Review (2026-08-01): GO** — accepted waivers listed under Known limitations in partner brief
+- **Anchor orientation (2026-08-01):** Entry / Handoff / AGENTS / `.anchor/`
+- **Partner evaluation opened:** [docs/project/partner-evaluation-brief.md](../docs/project/partner-evaluation-brief.md)
 
 ## Horizon
 
-1. Product Validation — Genshi Reference Pipeline
-2. External `ds-runtime` validation (not a repo dependency)
-3. External evaluation → 0.3 Stable → public adoption → catalog expansion → adapters
-4. Resolve npm `@genshi` scope ownership (see Blocked) before `@latest` public adoption
+1. Collect partner feedback → go/no-go for **0.3 Stable**
+2. Secure npm `@genshi` scope (or rename) + `NPM_TOKEN` → publish `@next`
+3. Improve ds-runtime scan hygiene against this monorepo (ignore `node_modules`; prefer `gsh-*`)
+4. After Stable + adoption evidence: catalog expansion → adapter maturity
 
 ## Next
 
-- Run Product Validation (Figma → repo → Storybook → employee-directory)
-- Keep catalog locked until after 0.3 Stable + adoption evidence
-- Partners consume via git tag / workspace until npm scope is owned
+- Share partner brief + Storybook (`npm run storybook`) / git tag with design partners
+- Do **not** promote 0.3 Stable, unlock catalog, or deepen Vue/Angular until validation period closes
+- Keep catalog locked
 
 ## Blocked
 
-- **npm publish:** `@genshi/core` and `@genshi/react` on the public registry are owned by a different project (`samrith-s/genshi`, state management). Tokens/foundation/themes are unpublished. GitHub prerelease `v0.3.0-next.0` is the authoritative cut until scope/org is secured or packages are renamed.
+- **npm publish:** missing `NPM_TOKEN` in Actions; foreign ownership of `@genshi/core` / `@genshi/react` on registry
+- **0.3 Stable / catalog expansion / public adoption push:** gated on partner evaluation period (Phase 6+)
+- **ds-runtime doctor/validate green:** gated on retrieval config / ignore of `node_modules` (external to Genshi product boundary)
 
 ## Roadmap
 
-- **Release:** `0.3.0-next` (git tag) then 0.3 Stable after validation; npm `@next` when scope allows
-- **Focus:** Product validation; ds-runtime external
+- **Release:** `0.3.0-next` (git) → validation period → 0.3 Stable → public adoption → catalog expansion → adapters
+- **Focus:** External evaluation evidence
 - **Out of scope until gates:** Catalog expansion, Vue/Angular impl, multi-brand theme UI, requiring ds-runtime in-repo
 
 ## Branch / PR
 
-- **Branch:** `main` (version bump `0.3.0-next.0` for `@genshi/core`; Changesets pre mode `next`)
-- **Release:** GitHub prerelease `v0.3.0-next.0`
+- **Branch:** `main` @ latest (includes `0.3.0-next.0` versions + employee-directory intent fix)
+- **Release:** [v0.3.0-next.0](https://github.com/jon4ohio/genshi-design-system/releases/tag/v0.3.0-next.0) (prerelease)
 - **Also:** `cursor/research-validation-lineage` has unmerged Storybook DX tip (`5cd6bfa`)
 
 ## Friction Log
 
 | Date | Repeated explanation | Contract | Root cause | Action |
 |------|---------------------|----------|------------|--------|
-| | | | | |
+| 2026-08-01 | Bare `Button` resolves to Storybook | External ds-runtime | Indexer includes `node_modules` | Query `gsh-*`; later DS ignore config |
+| 2026-08-01 | Cannot `npm i @genshi/core@next` | Release | Scope collision + no NPM_TOKEN | Git tag / workspace; fix org ownership |
