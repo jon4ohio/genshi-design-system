@@ -1,5 +1,6 @@
 import { LitElement, css, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
+import type { PropertyValues } from 'lit';
 
 @customElement('gsh-checkbox')
 export class GshCheckbox extends LitElement {
@@ -19,17 +20,38 @@ export class GshCheckbox extends LitElement {
     }
 
     input {
+      box-sizing: border-box;
       width: var(--gsh-checkbox-size);
       height: var(--gsh-checkbox-size);
       margin: 0;
       accent-color: var(--gsh-checkbox-fill-checked);
-      border: 1px solid var(--gsh-checkbox-border-default);
-      border-radius: 2px;
+      border: var(--gsh-checkbox-border-width) solid var(--gsh-checkbox-border-default);
+      border-radius: var(--gsh-checkbox-radius);
+    }
+
+    input:hover:not(:disabled) {
+      border-color: var(--gsh-checkbox-border-hover);
+    }
+
+    input:checked:hover:not(:disabled),
+    input:indeterminate:hover:not(:disabled) {
+      accent-color: var(--gsh-checkbox-fill-checked-hover);
     }
 
     input:focus-visible {
-      outline: 2px solid var(--gsh-checkbox-border-active);
-      outline-offset: 2px;
+      border-color: var(--gsh-checkbox-border-active);
+      outline: none;
+      box-shadow: var(--gsh-checkbox-focus-ring);
+    }
+
+    input:disabled {
+      border-color: var(--gsh-checkbox-border-disabled);
+      accent-color: var(--gsh-checkbox-fill-disabled);
+      cursor: not-allowed;
+    }
+
+    :host([invalid]) input {
+      border-color: var(--gsh-checkbox-border-invalid);
     }
 
     :host([disabled]) label {
@@ -39,6 +61,8 @@ export class GshCheckbox extends LitElement {
   `;
 
   @property({ type: Boolean, reflect: true }) checked = false;
+  @property({ type: Boolean, reflect: true }) indeterminate = false;
+  @property({ type: Boolean, reflect: true }) invalid = false;
   @property({ type: Boolean, reflect: true }) disabled = false;
   @property({ type: String }) name = '';
   @property({ type: String }) value = 'on';
@@ -55,6 +79,15 @@ export class GshCheckbox extends LitElement {
     );
   }
 
+  protected updated(changed: PropertyValues): void {
+    if (changed.has('indeterminate')) {
+      const input = this.shadowRoot?.querySelector('input');
+      if (input) {
+        input.indeterminate = this.indeterminate;
+      }
+    }
+  }
+
   render() {
     return html`
       <label>
@@ -63,7 +96,9 @@ export class GshCheckbox extends LitElement {
           .name=${this.name}
           .value=${this.value}
           .checked=${this.checked}
+          .indeterminate=${this.indeterminate}
           ?disabled=${this.disabled}
+          aria-invalid=${this.invalid || undefined}
           @change=${this.handleChange}
         />
         <slot></slot>
