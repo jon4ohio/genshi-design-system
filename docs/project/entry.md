@@ -43,10 +43,11 @@ Product detail for visitors: [README.md](../../README.md).
 | [ADAPTATION.md](../../ADAPTATION.md) | Pre-existing | SeamKit → Genshi adaptation procedure |
 | [CONTRIBUTING.md](../../CONTRIBUTING.md) | Pre-existing | Contributor procedure (not a contract) |
 | [packages/docs/README.md](../../packages/docs/README.md) | Pre-existing | Docs / Storybook map |
+| [partner-evaluation-brief.md](partner-evaluation-brief.md) | Pre-existing | Partner evaluation scope / brief |
 | `scripts/validate-*.mjs` | Pre-existing | Automated boundary/terminology checks |
 | This Entry | Gap-filled | Project identity / orientation |
 | [ai/handoff.md](../../ai/handoff.md) | Gap-filled | Session continuity |
-| [AGENTS.md](../../AGENTS.md) | Gap-filled | Thin AI dispatch (not a contract) |
+| [AGENTS.md](../../AGENTS.md) | Interim host dispatch | Thin AI dispatch realization (not a contract; not an orientation output) |
 | [.anchor/config.json](../../.anchor/config.json) | Init | Capability pin + path map |
 
 ## Where truths live
