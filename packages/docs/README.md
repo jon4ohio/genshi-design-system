@@ -21,4 +21,4 @@ Components/*             gsh-* catalog
 Integrations/React/*     @genshi/react wrappers
 ```
 
-Published Storybook deploys from `storybook-static/` via GitHub Pages on pushes to `main` (see `.github/workflows/ci.yml`).
+Published Storybook: https://genshi-design-system.vercel.app (`storybook-static/` via Vercel; see `vercel.json`). GitHub Pages deploy on `main` remains available via `.github/workflows/ci.yml`.
