@@ -14,6 +14,7 @@ Prove Genshi works as a **system** (not individual layers):
 ## How to consume
 
 - **Monorepo / git tag:** clone at `v0.3.0-next.0` or `main`
+- **Hosted Storybook:** https://genshi-design-system.vercel.app
 - **Local Storybook:** `npm ci && npm run build && npm run storybook`
 - **Example app:** `npm run build -w employee-directory` / `npm run dev`
 - **npm `@next`:** blocked until `@genshi` scope ownership is secured (foreign packages occupy `@genshi/core` / `@genshi/react` on the public registry). Prefer git/workspace until then.

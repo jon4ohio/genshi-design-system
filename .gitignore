@@ -6,3 +6,5 @@ packages/tokens/dist/
 storybook-static/
 *.tsbuildinfo
 .DS_Store
+.vercel
+.env*
