@@ -27,13 +27,22 @@ const componentTokens = `
   --gsh-checkbox-text-color: var(--gsh-color-text-primary);
 
   /* Dialog component tokens */
-  --gsh-dialog-surface: var(--gsh-color-surface-default);
-  --gsh-dialog-overlay: rgba(15, 23, 42, 0.45);
-  --gsh-dialog-radius: var(--gsh-radius-default);
-  --gsh-dialog-padding: var(--gsh-space-padding-large);
-  --gsh-dialog-gap: var(--gsh-space-gap-mid);
-  --gsh-dialog-shadow: 0 16px 40px rgba(15, 23, 42, 0.18);
+  /* surface/border/radius/padding/sizing sourced from the real vendor gsh-modal-* family
+     (tokens/vendor/seamkit/component.json sfe.modal -> tokens/source/genshi/component.json gsh.modal),
+     per Figma "Dialog" component set (fileKey 1mpwO1oRCJG6tOrXIZpr5w, nodeId 2001:17412) */
+  --gsh-dialog-surface: var(--gsh-modal-color-fill-dialog);
+  --gsh-dialog-border: var(--gsh-modal-color-border-dialog);
+  --gsh-dialog-border-width: var(--gsh-modal-sizing-border-default);
+  --gsh-dialog-radius: var(--gsh-sizing-radius-large);
+  --gsh-dialog-padding: var(--gsh-modal-spacing-padding-x-large);
+  --gsh-dialog-gap: var(--gsh-modal-spacing-padding-x-large);
+  --gsh-dialog-max-width: var(--gsh-modal-sizing-size-x-small);
   --gsh-dialog-title-color: var(--gsh-color-text-primary);
+  /* No vendor gsh-modal-* equivalent exists for the backdrop scrim, elevation shadow, or the
+     viewport-edge overlay padding — the Figma Dialog node only specifies the panel itself, not
+     its presentation wrapper. These remain hand-authored Genshi values. */
+  --gsh-dialog-overlay: rgba(15, 23, 42, 0.45);
+  --gsh-dialog-shadow: 0 16px 40px rgba(15, 23, 42, 0.18);
   --gsh-dialog-overlay-padding: var(--gsh-space-padding-large);
 
   /* Table component tokens */

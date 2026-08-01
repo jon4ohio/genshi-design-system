@@ -135,7 +135,7 @@
       "accessibility": true,
       "storybook": true,
       "tests": false,
-      "figmaParity": false,
+      "figmaParity": true,
       "documentation": true
     }
   },
