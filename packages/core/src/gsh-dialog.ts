@@ -22,10 +22,11 @@ export class GshDialog extends LitElement {
 
     .panel {
       background: var(--gsh-dialog-surface);
+      border: var(--gsh-dialog-border-width) solid var(--gsh-dialog-border);
       border-radius: var(--gsh-dialog-radius);
       padding: var(--gsh-dialog-padding);
       box-shadow: var(--gsh-dialog-shadow);
-      max-width: 480px;
+      max-width: var(--gsh-dialog-max-width);
       width: 100%;
       display: flex;
       flex-direction: column;
