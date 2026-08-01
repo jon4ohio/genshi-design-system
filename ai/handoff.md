@@ -8,57 +8,63 @@
 
 ## Delta
 
-- **Product Validation — Reference Pipeline (2026-08-01): PASS (in-product)**
-  - Figma sync already on `main` @ `b62d89e`
-  - `recreate:tokens` + validate + build + 10 tests green
-  - `build-storybook` green (all seven Components stories present)
-  - `employee-directory` build green after fixing `Button variant="neutral"` → `intent="neutral"` (`d308fad`)
-  - **Claim:** Genshi is usable without ds-runtime
-- **External ds-runtime (2026-08-01): PARTIAL** — run from external pack (`Downloads/.../DS runtime`), **not** added as a Genshi dependency
-  - `resolve gsh-button|gsh-badge|…|gsh-table`: authoritative → `packages/core/src/gsh-*.ts` + `stories/Components/*`
-  - `explain gsh-button`: found / structural matches
-  - `doctor` / `validate`: FAIL (1076 issues; duplicate normalized IDs — indexer noise from `node_modules`, e.g. Storybook templates)
-  - Bare `resolve Button` incorrectly prefers Storybook/`node_modules` over Genshi — use `gsh-*` / `Gsh*` names until DS retrieval config/ignore lands
-  - **Claim:** AI can resolve authoritative Genshi components **when queried by Genshi identifiers**; full-repo validate is not green yet
-- **Prerelease cut (2026-08-01):** `@genshi/core@0.3.0-next.0`; GitHub prerelease [v0.3.0-next.0](https://github.com/jon4ohio/genshi-design-system/releases/tag/v0.3.0-next.0); publish workflow selects `--tag next` but CI publish failed (`NPM_TOKEN` empty) and registry `@genshi/core|react` owned by unrelated project
-- **Release Readiness Review (2026-08-01): GO** — accepted waivers listed under Known limitations in partner brief
-- **Anchor orientation (2026-08-01):** Entry / Handoff / AGENTS / `.anchor/`
+- **AI Consumption Validation (2026-08-01): PASS (bare-name + duplicate-ID bar)**
+  - **ds-runtime fix** (canonical repo `/Users/mac/Development/demo-workspace/design-system-runtime` @ `b60c6e1`): `walkFiles` skips `node_modules`, `.git`, `dist`, `build`, `storybook-static`, `coverage`; implementation ranking prefers `packages/`; regression fixture `node-modules-pollution-ds` + tests.
+  - **Evidence against Genshi root:**
+    - `resolve Button|Badge|Input|Checkbox|Select|Dialog|Table` → primary `packages/react/src/index.tsx` (not `node_modules`)
+    - `explain Button` → found
+    - `validate`: `duplicate-identifier` **blocking count = 0**; `passed=false` solely from **4 non-blocking** `unresolved-story-reference` on docs stories (`Foundations/Overview`, `Governance`, `Wrappers`, `Tokens/Layers`) — not components; not Storybook-template noise
+    - `doctor`: `issueCount=8` (same 4 refs mirrored as error+warning); prior flood was ~1076
+  - **Tool-install evidence:** fresh pack `ds-runtime-1.0.0.tgz` (sha256 `6ca3fc2e6079cf41b71c0bd7cc67ca6d96c137bc633051a4fda37f2ca556d972`) at `/Users/mac/Development/demo-workspace/design-system-runtime/ds-runtime-1.0.0.tgz` (also copied to `/Users/mac/Downloads/Projects/Code & Tools/DS runtime/ds-runtime-1.0.0.tgz`); temp `npm install` + `resolve Button` → `packages/react/src/index.tsx`
+  - Storybook attaches as **stories**, not competing implementations; authority for bare names = what source-reader indexes + `packages/` preference
+- **Product Validation — Reference Pipeline (2026-08-01): PASS (in-product)** — recreate/validate/build/tests/Storybook/employee-directory (`intent` fix `d308fad`)
+- **Prerelease:** [v0.3.0-next.0](https://github.com/jon4ohio/genshi-design-system/releases/tag/v0.3.0-next.0); npm `@next` still blocked (foreign `@genshi` scope + empty `NPM_TOKEN`)
+- **Release Readiness Review GO**; Anchor scaffolding on `main`
 - **Partner evaluation opened:** [docs/project/partner-evaluation-brief.md](../docs/project/partner-evaluation-brief.md)
 
 ## Horizon
 
-1. Collect partner feedback → go/no-go for **0.3 Stable**
-2. Secure npm `@genshi` scope (or rename) + `NPM_TOKEN` → publish `@next`
-3. Improve ds-runtime scan hygiene against this monorepo (ignore `node_modules`; prefer `gsh-*`)
+1. Collect partner feedback (git clone path) → go/no-go for **0.3 Stable**
+2. Secure npm `@genshi` scope (or rename) + `NPM_TOKEN` → publish `@next` / test install-as-dependency
+3. Optionally clear non-blocking docs-story unresolved refs in ds-runtime or story titles (not a Genshi catalog unlock)
 4. After Stable + adoption evidence: catalog expansion → adapter maturity
 
 ## Next
 
-- Share partner brief + Storybook (`npm run storybook`) / git tag with design partners
+- Share partner brief + Storybook / git tag `v0.3.0-next.0` with design partners
 - Do **not** promote 0.3 Stable, unlock catalog, or deepen Vue/Angular until validation period closes
 - Keep catalog locked
 
 ## Blocked
 
-- **npm publish:** missing `NPM_TOKEN` in Actions; foreign ownership of `@genshi/core` / `@genshi/react` on registry
-- **0.3 Stable / catalog expansion / public adoption push:** gated on partner evaluation period (Phase 6+)
-- **ds-runtime doctor/validate green:** gated on retrieval config / ignore of `node_modules` (external to Genshi product boundary)
+- **npm publish / install-as-dependency:** missing `NPM_TOKEN`; foreign ownership of `@genshi/core` / `@genshi/react` on registry
+- **Partner eval scope gap (explicit):** Partner eval validates API/DX from a **clone**; **installation-as-a-dependency remains untested** pending npm scope / `NPM_TOKEN`
+- **0.3 Stable / catalog expansion:** gated on partner evaluation period
+
+## ds-runtime paths (locked)
+
+| Role | Path |
+|------|------|
+| Canonical **dev** repo | `/Users/mac/Development/demo-workspace/design-system-runtime` |
+| Release **artifact** (tool pack) | `/Users/mac/Development/demo-workspace/design-system-runtime/ds-runtime-1.0.0.tgz` (mirrored under Downloads `.../DS runtime/`) |
+
+Genshi does **not** depend on `ds-runtime` in-repo.
 
 ## Roadmap
 
-- **Release:** `0.3.0-next` (git) → validation period → 0.3 Stable → public adoption → catalog expansion → adapters
-- **Focus:** External evaluation evidence
+- **Release:** `0.3.0-next` (git) → partner evidence → 0.3 Stable → public adoption → catalog expansion → adapters
+- **Focus:** Market / partner evidence; npm when unblocked
 - **Out of scope until gates:** Catalog expansion, Vue/Angular impl, multi-brand theme UI, requiring ds-runtime in-repo
 
 ## Branch / PR
 
-- **Branch:** `main` @ latest (includes `0.3.0-next.0` versions + employee-directory intent fix)
-- **Release:** [v0.3.0-next.0](https://github.com/jon4ohio/genshi-design-system/releases/tag/v0.3.0-next.0) (prerelease)
-- **Also:** `cursor/research-validation-lineage` has unmerged Storybook DX tip (`5cd6bfa`)
+- **Genshi:** `main` @ latest (`0.3.0-next.0` + validation docs)
+- **ds-runtime:** `cursor/ev-02-authority-determination` @ `b60c6e1` (indexer fix; push when ready)
+- **Release:** [v0.3.0-next.0](https://github.com/jon4ohio/genshi-design-system/releases/tag/v0.3.0-next.0)
 
 ## Friction Log
 
 | Date | Repeated explanation | Contract | Root cause | Action |
 |------|---------------------|----------|------------|--------|
-| 2026-08-01 | Bare `Button` resolves to Storybook | External ds-runtime | Indexer includes `node_modules` | Query `gsh-*`; later DS ignore config |
+| 2026-08-01 | Bare `Button` → Storybook | AI Consumption | Indexer walked `node_modules`/`dist` | Skip dirs + prefer `packages/`; regression test |
 | 2026-08-01 | Cannot `npm i @genshi/core@next` | Release | Scope collision + no NPM_TOKEN | Git tag / workspace; fix org ownership |

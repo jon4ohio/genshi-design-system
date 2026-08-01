@@ -18,6 +18,8 @@ Prove Genshi works as a **system** (not individual layers):
 - **Example app:** `npm run build -w employee-directory` / `npm run dev`
 - **npm `@next`:** blocked until `@genshi` scope ownership is secured (foreign packages occupy `@genshi/core` / `@genshi/react` on the public registry). Prefer git/workspace until then.
 
+**Scope note:** This partner path validates API/DX from a **clone**. **Installation-as-a-dependency** (`npm i @genshi/core`) **remains untested** pending npm scope / `NPM_TOKEN` resolution.
+
 ## Catalog under evaluation (frozen)
 
 Button, Badge, Input, Checkbox, Select, Dialog, Table — plus foundation primitives (Text, Box, Stack, Icon).
