@@ -18,9 +18,13 @@ Re-synced the Phase 1/2 exemplary component catalog (Button, Badge, Input, Check
 - `gsh-select`: corrected border-radius (was aliasing Input's 4px; Figma's Dropdown button uses 8px) and added missing hover/disabled states.
 - `gsh-table`: corrected border color, header fill, and cell padding to match measured Figma values.
 
+**Additive follow-up (this same sync pass, not breaking):**
+
+- `gsh-button` gained a `link` variant value (Figma-only-for-`brand`, plain underlined text, no fill/border/padding-box) and a `warning` intent value, both now backed by real vendor tokens: `sfe.btn.color.{fill,border,content}.*.warning` was added to `tokens/vendor/seamkit/component.json`, sourced from the previously-unwired `sfe.color.interaction.warning.*` / `sfe.color.text.warning.*` Intent-layer scale (a genuine, already-existing orange ramp that was never wired to Button — confirmed via Figma that the "Warning" instances in the source file are themselves mistakenly bound to the Positive/green variables, a Figma-side authoring bug we did not propagate). `sfe.btn.color.content.link.{brand,disabled}` was also added.
+
 **Known gaps (not fixed, documented for follow-up):**
 
-- `gsh-button` has no vendor-sourced token for a `warning` intent or a focus-ring state.
+- `gsh-button`'s Figma "Focused" state has a real, visually-confirmed two-layer ring effect, but it resolves to an unbound literal color (not a design variable) that doesn't trace to any vendor primitive — adding it as a token would mean a raw hex skipping the Intent layer, which breaks the Component→Intent→Core resolution chain (ADR-0002/ADR-0009) and has no precedent elsewhere in `component.json`. Native browser focus outline remains the fallback.
 - `gsh-input` has no vendor-sourced disabled-state tokens (approximated with `opacity`).
 - `gsh-select` has no chevron/caret icon (blocked on `packages/icons` still being a stub).
 - `gsh-table`'s richer cell types (status pill, badge, trend indicator, actions) are not modeled as they'd require new components, which are out of scope while the catalog is locked pre-prerelease.

@@ -6,24 +6,48 @@ import { buttonTokens } from './tokens.js';
  * gsh-button
  *
  * Synced against Figma "Button" (COMPONENT_SET, node 3034:34227, fileKey
- * 1mpwO1oRCJG6tOrXIZpr5w, page "↳ Buttons").
+ * 1mpwO1oRCJG6tOrXIZpr5w, page "↳ Buttons"). This is a deep-dive follow-up to
+ * the first sync pass — see below for `link`/`warning`/`Focused` specifics.
  *
  * Figma variant axes → component properties:
- *   - Variant (Solid/Faded/Bare/Outline/Ghost) → `variant`
+ *   - Variant (Solid/Faded/Bare/Outline/Ghost/Link) → `variant`
+ *     `link` is a Figma-only-for-Brand treatment: underlined text, no
+ *     fill/border/padding-box (see `content-link-*` tokens + CSS below).
  *   - Intent  (Brand/Critical/Neutral/Inverse/Positive/Warning) → `intent`
- *     NOTE: Warning intent is defined in Figma but has NO generated
- *     `--gsh-btn-color-*-warning-*` tokens in tokens/generated/css/tokens.css
- *     (tokens/source/genshi/component.json `gsh.btn` has no `warning` key).
- *     This is a vendor-pipeline gap — intentionally not modeled here rather
- *     than fabricating token values. See final report for detail.
+ *     Warning is now backed by real `--gsh-btn-color-*-warning-*` tokens
+ *     (tokens/vendor/seamkit/component.json `sfe.btn.color.*.warning`,
+ *     sourced from the previously-unwired `sfe.color.interaction.warning.*`
+ *     / `sfe.color.text.warning.*` Intent-layer scale — a genuine orange
+ *     ramp, `color.orange.*`). NOTE: the "Warning" instances in the Figma
+ *     file itself are bound to the *Positive* (green) variables — a
+ *     confirmed Figma-side authoring bug (verified via get_variable_defs on
+ *     multiple Warning nodes across all 5 box-model variants, and visually
+ *     via screenshot: Warning renders green in Figma today). We did not
+ *     propagate that bug; we wired Warning to the real, already-existing
+ *     warning color scale in the Intent layer instead, matching the
+ *     Critical/Positive reference pattern.
  *   - Size (L/M(base)/S/XS) → `size` ('large'|'mid'|'small'|'xsmall')
+ *     `link` only exists for Intent=Brand in Figma but spans all 4 sizes.
  *   - Style (Boxed/Rounded) → `shape` ('boxed'|'rounded')
+ *     Out of scope for this pass: only Boxed data was pulled for the new
+ *     link/warning/Focused additions (Rounded already worked for the
+ *     pre-existing variants/intents from the first pass).
  *   - State (Default/Hover/Pressed/Disabled/Focused) → CSS pseudo-classes.
- *     NOTE: Figma defines a "Focused" state, but there is no generated
- *     `--gsh-btn-*-focus*` token (unlike gsh-input's `--gsh-input-border-active`).
- *     No focus-ring color is fabricated here; the native focus outline is left
- *     intact (not suppressed) as a baseline a11y fallback. Gap documented in
- *     final report.
+ *     NOTE: Figma defines a "Focused" state with a real, visually-confirmed
+ *     two-layer ring effect (colored outer + white inner separator),
+ *     uniform across every variant/intent/Style combo checked (including
+ *     the new Link and Warning). However `get_variable_defs` shows this
+ *     effect is an unbound literal ("focus ring": DROP_SHADOW #9747FF +
+ *     DROP_SHADOW #FFFFFF) — not a bound `sfe/...` variable — and #9747FF
+ *     matches Figma's own UI accent for component/instance boundaries, not
+ *     a value traceable to any primitive in tokens/vendor/seamkit. Per
+ *     ADR-0002/ADR-0009 (Component → Intent → Core only, never a raw
+ *     literal skipping Intent), we do not encode it as a token: doing so
+ *     would also break with precedent (component.json has zero raw-hex
+ *     leaves; only primitive.json/Core does). No focus-ring color is
+ *     fabricated here; the native focus outline is left intact as a
+ *     baseline a11y fallback — the same call the first pass made, now
+ *     re-verified with hard evidence rather than assumed.
  */
 @customElement('gsh-button')
 export class GshButton extends LitElement {
@@ -145,6 +169,18 @@ export class GshButton extends LitElement {
       background: var(--gsh-btn-color-fill-solid-positive-pressed);
       border-color: var(--gsh-btn-color-border-solid-positive-pressed);
     }
+    :host([variant='solid'][intent='warning']) button {
+      background: var(--gsh-btn-color-fill-solid-warning-default);
+      border-color: var(--gsh-btn-color-border-solid-warning-default);
+    }
+    :host([variant='solid'][intent='warning']) button:hover:not(:disabled) {
+      background: var(--gsh-btn-color-fill-solid-warning-hover);
+      border-color: var(--gsh-btn-color-border-solid-warning-hover);
+    }
+    :host([variant='solid'][intent='warning']) button:active:not(:disabled) {
+      background: var(--gsh-btn-color-fill-solid-warning-pressed);
+      border-color: var(--gsh-btn-color-border-solid-warning-pressed);
+    }
     :host([variant='solid'][intent='inverse']) button {
       background: var(--gsh-btn-color-fill-solid-inverse-default);
       border-color: var(--gsh-btn-color-border-solid-inverse-default);
@@ -219,6 +255,19 @@ export class GshButton extends LitElement {
     :host([variant='faded'][intent='positive']) button:active:not(:disabled) {
       background: var(--gsh-btn-color-fill-faded-positive-pressed);
       border-color: var(--gsh-btn-color-border-faded-positive-pressed);
+    }
+    :host([variant='faded'][intent='warning']) button {
+      background: var(--gsh-btn-color-fill-faded-warning-default);
+      border-color: var(--gsh-btn-color-border-faded-warning-default);
+      color: var(--gsh-btn-color-content-faded-warning);
+    }
+    :host([variant='faded'][intent='warning']) button:hover:not(:disabled) {
+      background: var(--gsh-btn-color-fill-faded-warning-hover);
+      border-color: var(--gsh-btn-color-border-faded-warning-hover);
+    }
+    :host([variant='faded'][intent='warning']) button:active:not(:disabled) {
+      background: var(--gsh-btn-color-fill-faded-warning-pressed);
+      border-color: var(--gsh-btn-color-border-faded-warning-pressed);
     }
     :host([variant='faded'][intent='inverse']) button {
       background: var(--gsh-btn-color-fill-faded-inverse-default);
@@ -295,6 +344,19 @@ export class GshButton extends LitElement {
       background: var(--gsh-btn-color-fill-bare-positive-pressed);
       border-color: var(--gsh-btn-color-border-bare-positive-pressed);
     }
+    :host([variant='bare'][intent='warning']) button {
+      background: var(--gsh-btn-color-fill-bare-warning-default);
+      border-color: var(--gsh-btn-color-border-bare-warning-default);
+      color: var(--gsh-btn-color-content-bare-warning);
+    }
+    :host([variant='bare'][intent='warning']) button:hover:not(:disabled) {
+      background: var(--gsh-btn-color-fill-bare-warning-hover);
+      border-color: var(--gsh-btn-color-border-bare-warning-hover);
+    }
+    :host([variant='bare'][intent='warning']) button:active:not(:disabled) {
+      background: var(--gsh-btn-color-fill-bare-warning-pressed);
+      border-color: var(--gsh-btn-color-border-bare-warning-pressed);
+    }
     :host([variant='bare'][intent='inverse']) button {
       background: var(--gsh-btn-color-fill-bare-inverse-default);
       border-color: var(--gsh-btn-color-border-bare-inverse-default);
@@ -369,6 +431,19 @@ export class GshButton extends LitElement {
     :host([variant='outline'][intent='positive']) button:active:not(:disabled) {
       background: var(--gsh-btn-color-fill-outline-positive-pressed);
       border-color: var(--gsh-btn-color-border-outline-positive-pressed);
+    }
+    :host([variant='outline'][intent='warning']) button {
+      background: var(--gsh-btn-color-fill-outline-warning-default);
+      border-color: var(--gsh-btn-color-border-outline-warning-default);
+      color: var(--gsh-btn-color-content-outline-warning);
+    }
+    :host([variant='outline'][intent='warning']) button:hover:not(:disabled) {
+      background: var(--gsh-btn-color-fill-outline-warning-hover);
+      border-color: var(--gsh-btn-color-border-outline-warning-hover);
+    }
+    :host([variant='outline'][intent='warning']) button:active:not(:disabled) {
+      background: var(--gsh-btn-color-fill-outline-warning-pressed);
+      border-color: var(--gsh-btn-color-border-outline-warning-pressed);
     }
     :host([variant='outline'][intent='inverse']) button {
       background: var(--gsh-btn-color-fill-outline-inverse-default);
@@ -445,6 +520,19 @@ export class GshButton extends LitElement {
       background: var(--gsh-btn-color-fill-ghost-positive-pressed);
       border-color: var(--gsh-btn-color-border-ghost-positive-pressed);
     }
+    :host([variant='ghost'][intent='warning']) button {
+      background: var(--gsh-btn-color-fill-ghost-warning-default);
+      border-color: var(--gsh-btn-color-border-ghost-warning-default);
+      color: var(--gsh-btn-color-content-ghost-warning);
+    }
+    :host([variant='ghost'][intent='warning']) button:hover:not(:disabled) {
+      background: var(--gsh-btn-color-fill-ghost-warning-hover);
+      border-color: var(--gsh-btn-color-border-ghost-warning-hover);
+    }
+    :host([variant='ghost'][intent='warning']) button:active:not(:disabled) {
+      background: var(--gsh-btn-color-fill-ghost-warning-pressed);
+      border-color: var(--gsh-btn-color-border-ghost-warning-pressed);
+    }
     :host([variant='ghost'][intent='inverse']) button {
       background: var(--gsh-btn-color-fill-ghost-inverse-default);
       border-color: var(--gsh-btn-color-border-ghost-inverse-default);
@@ -466,20 +554,44 @@ export class GshButton extends LitElement {
       background: var(--gsh-btn-color-fill-ghost-inverse-disabled);
       border-color: var(--gsh-btn-color-border-ghost-inverse-disabled);
     }
+
+    /* ---------- Variant = Link ---------- */
+    /* Figma "Link" has no fill/border/padding-box at any size — the instance
+       bounding box exactly matches the text glyph box (e.g. 56x20 at Size=L
+       vs Solid's 88x48 at the same size). It is plain underlined text, not a
+       box-model button, so it resets the size-axis height/padding rules
+       above rather than reusing them. Figma only defines Link for
+       Intent=Brand — other intents fall back to the brand color via the
+       CSS custom property's own initial value (no per-intent override
+       exists because none exists in the vendor/Figma source). */
+    :host([variant='link']) button {
+      height: auto;
+      padding-inline: 0;
+      border: none;
+      background: transparent;
+      color: var(--gsh-btn-color-content-link-brand);
+      text-decoration: none;
+    }
+    :host([variant='link']) button:hover:not(:disabled),
+    :host([variant='link']) button:active:not(:disabled) {
+      text-decoration: underline;
+    }
+    :host([variant='link']) button:disabled {
+      color: var(--gsh-btn-color-content-link-disabled);
+    }
   `;
 
-  /** Figma "Variant": visual style/emphasis. */
-  @property({ type: String, reflect: true })
-  variant: 'solid' | 'faded' | 'bare' | 'outline' | 'ghost' = 'solid';
-
   /**
-   * Figma "Intent": semantic color role.
-   * NOTE: Figma also defines a "Warning" intent with no corresponding
-   * generated Component tokens (`--gsh-btn-*-warning-*` do not exist in
-   * tokens/generated/css/tokens.css) — not modeled here; see report.
+   * Figma "Variant": visual style/emphasis.
+   * `link` is a Figma-only-for-Brand plain-text treatment (no fill/border) —
+   * see class docblock and the "Variant = Link" CSS block above.
    */
   @property({ type: String, reflect: true })
-  intent: 'brand' | 'neutral' | 'critical' | 'positive' | 'inverse' = 'brand';
+  variant: 'solid' | 'faded' | 'bare' | 'outline' | 'ghost' | 'link' = 'solid';
+
+  /** Figma "Intent": semantic color role. */
+  @property({ type: String, reflect: true })
+  intent: 'brand' | 'neutral' | 'critical' | 'positive' | 'inverse' | 'warning' = 'brand';
 
   /** Figma "Size": L/M(base)/S/XS. */
   @property({ type: String, reflect: true })

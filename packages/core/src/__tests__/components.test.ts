@@ -31,6 +31,17 @@ describe('@genshi/core', () => {
     document.body.removeChild(el);
   });
 
+  it('reflects gsh-button link variant and warning intent as attributes', async () => {
+    const el = new GshButton();
+    document.body.appendChild(el);
+    el.variant = 'link';
+    el.intent = 'warning';
+    await el.updateComplete;
+    expect(el.getAttribute('variant')).toBe('link');
+    expect(el.getAttribute('intent')).toBe('warning');
+    document.body.removeChild(el);
+  });
+
   it('registers gsh-badge with Figma-aligned defaults', () => {
     const el = new GshBadge();
     expect(el.tagName.toLowerCase()).toBe('gsh-badge');
