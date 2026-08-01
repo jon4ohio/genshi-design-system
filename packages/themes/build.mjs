@@ -67,9 +67,9 @@ const componentTokens = `
   --gsh-dialog-overlay-padding: var(--gsh-space-padding-large);
 
   /* Table component tokens */
-  --gsh-table-border: var(--gsh-color-border-muted);
-  --gsh-table-header-fill: var(--gsh-color-surface-neutral-light);
-  --gsh-table-cell-padding: var(--gsh-space-padding-mid);
+  --gsh-table-border: var(--gsh-color-border-neutral-surface);
+  --gsh-table-header-fill: var(--gsh-color-fill-neutral-subtle);
+  --gsh-table-cell-padding: var(--gsh-space-padding-mid) var(--gsh-space-padding-small);
   --gsh-table-radius: var(--gsh-radius-small);
   --gsh-table-text-color: var(--gsh-color-text-primary);
 `;

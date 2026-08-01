@@ -22,6 +22,9 @@ export class GshTable extends LitElement {
 
     ::slotted(thead) {
       background: var(--gsh-table-header-fill);
+      border-bottom: 1px solid var(--gsh-table-border);
+      font-weight: 500;
+      font-size: 12px;
     }
 
     ::slotted(th),
