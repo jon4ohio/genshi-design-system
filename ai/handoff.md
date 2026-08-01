@@ -48,7 +48,7 @@
 | Canonical **dev** repo | `/Users/mac/Development/demo-workspace/design-system-runtime` |
 | Release **artifact** (tool pack) | `/Users/mac/Development/demo-workspace/design-system-runtime/ds-runtime-1.0.0.tgz` (mirrored under Downloads `.../DS runtime/`) |
 
-Genshi does **not** depend on `ds-runtime` in-repo.
+**Supported root** = design-system **source repo** (see ds-runtime README); not an app install tree. Genshi does **not** depend on `ds-runtime` in-repo.
 
 ## Roadmap
 
