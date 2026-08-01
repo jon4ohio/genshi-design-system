@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { GshButton } from '../gsh-button.js';
 import { GshBadge } from '../gsh-badge.js';
 import { GshInput } from '../gsh-input.js';
+import { GshSelect } from '../gsh-select.js';
 
 describe('@genshi/core', () => {
   it('registers gsh-button', () => {
@@ -54,5 +55,11 @@ describe('@genshi/core', () => {
     expect(el.hasAttribute('disabled')).toBe(true);
     expect(el.hasAttribute('invalid')).toBe(true);
     document.body.removeChild(el);
+  });
+
+  it('registers gsh-select', () => {
+    const el = new GshSelect();
+    expect(el.tagName.toLowerCase()).toBe('gsh-select');
+    expect(el.disabled).toBe(false);
   });
 });

@@ -9,14 +9,26 @@ fs.mkdirSync(distDir, { recursive: true });
 
 const componentTokens = `
   /* Select component tokens */
-  --gsh-select-fill-ghost: var(--gsh-input-fill-ghost);
-  --gsh-select-border-default: var(--gsh-input-border-default);
+  /* Figma "Dropdown button" (3311:13722) reuses the Button ghost/neutral
+     treatment plus a trailing chevron, not the plain Input field styling —
+     alias the vendor-sourced --gsh-btn-* ghost/neutral chain (already an
+     exact hex match to the SeamKit dropdown spec) instead of Input's tokens. */
+  --gsh-select-fill-ghost: var(--gsh-btn-color-fill-ghost-neutral-default);
+  --gsh-select-fill-ghost-hover: var(--gsh-btn-color-fill-ghost-neutral-hover);
+  --gsh-select-border-default: var(--gsh-btn-color-border-ghost-neutral-default);
+  --gsh-select-border-hover: var(--gsh-btn-color-border-ghost-neutral-hover);
+  /* Select renders a real native form control (unlike the Button-styled
+     Figma mock), so keep the stronger Input-style active/focus border for
+     accessible contrast rather than the pale button hover border. */
   --gsh-select-border-active: var(--gsh-input-border-active);
-  --gsh-select-size-mid: var(--gsh-input-size-mid);
-  --gsh-select-padding-x-mid: var(--gsh-input-padding-x-mid);
-  --gsh-select-border-width: var(--gsh-input-border-width);
-  --gsh-select-radius-small: var(--gsh-input-radius-small);
-  --gsh-select-text-color: var(--gsh-color-text-primary);
+  --gsh-select-border-disabled: var(--gsh-btn-color-border-ghost-disabled);
+  --gsh-select-size-mid: var(--gsh-btn-sizing-size-y-mid);
+  --gsh-select-padding-x-mid: var(--gsh-btn-spacing-padding-x-mid);
+  --gsh-select-border-width: var(--gsh-btn-sizing-border-default);
+  /* "M (base)" size in Figma uses the default 8px radius, not 4px. */
+  --gsh-select-radius-small: var(--gsh-btn-sizing-radius-large);
+  --gsh-select-text-color: var(--gsh-btn-color-content-ghost-neutral);
+  --gsh-select-text-color-disabled: var(--gsh-color-interaction-disabled-strong);
 
   /* Checkbox component tokens */
   --gsh-checkbox-size: 16px;
