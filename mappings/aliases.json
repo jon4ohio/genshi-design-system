@@ -42,5 +42,8 @@
   "--gsh-form-input-spacing-padding-x-mid": "--gsh-input-padding-x-mid",
   "--gsh-form-input-spacing-padding-x-large": "--gsh-input-padding-x-large",
   "--gsh-form-input-sizing-border-default": "--gsh-input-border-width",
-  "--gsh-form-input-sizing-radius-small": "--gsh-input-radius-small"
+  "--gsh-form-input-sizing-radius-small": "--gsh-input-radius-small",
+  "--gsh-form-input-sizing-radius-large": "--gsh-input-radius-large",
+  "--gsh-form-input-color-border-hover": "--gsh-input-border-hover",
+  "--gsh-form-input-color-border-error": "--gsh-input-border-error"
 }

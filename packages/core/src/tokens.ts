@@ -45,27 +45,47 @@ export const spacing = {
   },
 } as const;
 
+/**
+ * Documentary reference for gsh-button's Component-tier token surface.
+ * Synced against Figma "Button" (node 3034:34227): variant = Solid/Faded/
+ * Bare/Outline/Ghost, intent = Brand/Critical/Neutral/Positive/Inverse
+ * (Figma's "Warning" intent has no generated tokens — see gsh-button.ts doc
+ * comment), size = Large/Mid/Small/Xsmall, shape = Boxed/Rounded.
+ * Full canonical `--gsh-btn-*` set lives in tokens/generated/css/tokens.css;
+ * this samples one representative axis (solid/brand) plus the shared
+ * sizing/shape tokens used across every variant+intent combination.
+ */
 export const buttonTokens = {
   fill: {
-    brand: {
-      default: 'var(--gsh-button-fill-brand-default)',
-      hover: 'var(--gsh-button-fill-brand-hover)',
-      pressed: 'var(--gsh-button-fill-brand-pressed)',
-    },
-    neutral: {
-      default: 'var(--gsh-button-fill-neutral-default)',
-      hover: 'var(--gsh-button-fill-neutral-hover)',
-      pressed: 'var(--gsh-button-fill-neutral-pressed)',
+    solidBrand: {
+      default: 'var(--gsh-btn-color-fill-solid-brand-default)',
+      hover: 'var(--gsh-btn-color-fill-solid-brand-hover)',
+      pressed: 'var(--gsh-btn-color-fill-solid-brand-pressed)',
     },
   },
-  content: 'var(--gsh-button-content-solid)',
+  content: {
+    solidDefault: 'var(--gsh-btn-color-content-solid-default)',
+    solidInverse: 'var(--gsh-btn-color-content-solid-inverse)',
+  },
+  sizeY: {
+    large: 'var(--gsh-btn-sizing-size-y-large)',
+    mid: 'var(--gsh-btn-sizing-size-y-mid)',
+    small: 'var(--gsh-btn-sizing-size-y-small)',
+    xsmall: 'var(--gsh-btn-sizing-size-y-xsmall)',
+  },
   paddingX: {
-    small: 'var(--gsh-button-padding-x-small)',
-    mid: 'var(--gsh-button-padding-x-mid)',
-    large: 'var(--gsh-button-padding-x-large)',
+    small: 'var(--gsh-btn-spacing-padding-x-small)',
+    mid: 'var(--gsh-btn-spacing-padding-x-mid)',
+    large: 'var(--gsh-btn-spacing-padding-x-large)',
+    xsmall: 'var(--gsh-btn-spacing-padding-x-xsmall)',
   },
-  paddingY: 'var(--gsh-button-padding-y-mid)',
-  radius: 'var(--gsh-button-radius-small)',
+  gap: 'var(--gsh-btn-spacing-gap-large)',
+  borderWidth: 'var(--gsh-btn-sizing-border-default)',
+  radius: {
+    boxedLarge: 'var(--gsh-btn-sizing-radius-large)',
+    boxedSmall: 'var(--gsh-btn-sizing-radius-small)',
+    rounded: 'var(--gsh-btn-sizing-radius-round)',
+  },
 } as const;
 
 export const inputTokens = {
@@ -88,18 +108,89 @@ export const inputTokens = {
   radius: 'var(--gsh-input-radius-small)',
 } as const;
 
+/**
+ * Badge intents mirror the SeamKit "badge" component-set's `intent` variant
+ * property (Figma fileKey 1mpwO1oRCJG6tOrXIZpr5w, node 5568:58532). Each
+ * intent maps to a color-key suffix used by the generated `--gsh-badge-color-*`
+ * component tokens (tokens/source/genshi/component.json → `gsh.badge`).
+ */
+export const badgeIntents = [
+  'neutral',
+  'info',
+  'positive',
+  'critical',
+  'warning',
+  'raspberry',
+  'magenta',
+  'purple',
+  'grape',
+  'violet',
+  'cyan',
+  'teal',
+  'aquamarine',
+] as const;
+
+export type BadgeIntent = (typeof badgeIntents)[number];
+
+export const badgeVariants = ['solid', 'faded', 'outline', 'bare', 'ghost'] as const;
+
+export type BadgeVariant = (typeof badgeVariants)[number];
+
+export const badgeSizes = ['small', 'large'] as const;
+
+export type BadgeSize = (typeof badgeSizes)[number];
+
+/** Genshi intent name -> generated component-token color-key suffix. */
+const badgeColorKey: Record<BadgeIntent, string> = {
+  neutral: 'grey',
+  info: 'blue',
+  positive: 'green',
+  critical: 'red',
+  warning: 'orange',
+  raspberry: 'raspberry',
+  magenta: 'magenta',
+  purple: 'purple',
+  grape: 'grape',
+  violet: 'violet',
+  cyan: 'cyan',
+  teal: 'teal',
+  aquamarine: 'aquamarine',
+} as const;
+
+/**
+ * Component-tier `--gsh-badge-*` token references only (never Intent/Core
+ * tokens directly — ADR-0002 / ADR-0009 Invariant B). `fill`/`content`/`border`
+ * resolve the generated variant x intent matrix; variants without a per-color
+ * fill/border (bare, outline) fall back to their shared "default" token.
+ */
 export const badgeTokens = {
-  fill: {
-    brand: 'var(--gsh-color-surface-neutral-light)',
-    neutral: 'var(--gsh-color-surface-default)',
+  colorKey: badgeColorKey,
+  fill(variant: BadgeVariant, intent: BadgeIntent): string {
+    const key = variant === 'bare' || variant === 'outline' ? 'default' : badgeColorKey[intent];
+    return `var(--gsh-badge-color-fill-${variant}-${key})`;
   },
-  text: {
-    brand: 'var(--gsh-color-text-brand)',
-    neutral: 'var(--gsh-color-text-primary)',
+  content(variant: BadgeVariant, intent: BadgeIntent): string {
+    const key = variant === 'solid' ? 'default' : badgeColorKey[intent];
+    return `var(--gsh-badge-color-content-${variant}-${key})`;
   },
-  paddingX: 'var(--gsh-space-padding-small)',
-  paddingY: 'var(--gsh-space-padding-small)',
-  radius: 'var(--gsh-radius-small)',
+  border(variant: BadgeVariant, intent: BadgeIntent): string {
+    const key = variant === 'bare' ? 'default' : badgeColorKey[intent];
+    return `var(--gsh-badge-color-border-${variant}-${key})`;
+  },
+  size: {
+    small: 'var(--gsh-badge-sizing-size-small)',
+    large: 'var(--gsh-badge-sizing-size-large)',
+  },
+  borderWidth: 'var(--gsh-badge-sizing-border-default)',
+  radius: 'var(--gsh-badge-sizing-radius-default)',
+  gap: {
+    small: 'var(--gsh-badge-spacing-gap-small)',
+    large: 'var(--gsh-badge-spacing-gap-mid)',
+  },
+  paddingX: {
+    small: 'var(--gsh-badge-spacing-padding-x-xsmall)',
+    large: 'var(--gsh-badge-spacing-padding-x-small)',
+  },
 } as const;
 
 export function typographyCss(prefix: string, includeLineHeight = true): string {

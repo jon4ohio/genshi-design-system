@@ -26,8 +26,21 @@ export class GshInput extends LitElement {
       letter-spacing: var(--body-default-regular-letter-spacing);
     }
 
+    input:hover:not(:disabled) {
+      border-color: var(--gsh-input-border-hover);
+    }
+
     input:focus {
       border-color: var(--gsh-input-border-active);
+    }
+
+    input:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    :host([invalid]) input {
+      border-color: var(--gsh-input-border-error);
     }
 
     :host([size='small']) input {
@@ -41,6 +54,7 @@ export class GshInput extends LitElement {
     :host([size='large']) input {
       height: var(--gsh-input-size-large);
       padding-inline: var(--gsh-input-padding-x-large);
+      border-radius: var(--gsh-input-radius-large);
     }
   `;
 
@@ -50,6 +64,8 @@ export class GshInput extends LitElement {
   @property({ type: String }) type = 'text';
   @property({ type: String }) name = '';
   @property({ type: String }) 'aria-label' = '';
+  @property({ type: Boolean, reflect: true }) disabled = false;
+  @property({ type: Boolean, reflect: true }) invalid = false;
 
   private handleInput(event: Event) {
     const target = event.target as HTMLInputElement;
@@ -79,6 +95,8 @@ export class GshInput extends LitElement {
         .name=${this.name}
         .value=${this.value}
         .placeholder=${this.placeholder}
+        ?disabled=${this.disabled}
+        aria-invalid=${this.invalid ? 'true' : 'false'}
         aria-label=${this['aria-label'] || undefined}
         @input=${this.handleInput}
       />
