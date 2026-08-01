@@ -32,9 +32,18 @@ const componentTokens = `
 
   /* Checkbox component tokens */
   --gsh-checkbox-size: 16px;
-  --gsh-checkbox-border-default: var(--gsh-input-border-default);
-  --gsh-checkbox-border-active: var(--gsh-input-border-active);
-  --gsh-checkbox-fill-checked: var(--gsh-button-fill-brand-default);
+  --gsh-checkbox-radius: var(--gsh-radius-small);
+  --gsh-checkbox-border-width: var(--gsh-sizing-border-200);
+  --gsh-checkbox-border-default: var(--gsh-color-interaction-neutral-faded-subtle);
+  --gsh-checkbox-border-hover: var(--gsh-color-interaction-neutral-faded-strong);
+  --gsh-checkbox-border-active: var(--gsh-color-interaction-neutral-faded-strong);
+  --gsh-checkbox-border-disabled: var(--gsh-color-interaction-disabled-strong);
+  --gsh-checkbox-border-invalid: var(--gsh-color-interaction-critical-solid-weakest);
+  --gsh-checkbox-fill-checked: var(--gsh-color-interaction-brand-solid-weak);
+  --gsh-checkbox-fill-checked-hover: var(--gsh-color-interaction-brand-solid-subtle);
+  --gsh-checkbox-fill-disabled: var(--gsh-color-interaction-disabled-strong);
+  --gsh-checkbox-icon-color: var(--gsh-color-icon-default-inverted-primary);
+  --gsh-checkbox-focus-ring: 0 0 0 1px #ffffff, 0 0 0 4px #9747ff;
   --gsh-checkbox-label-gap: var(--gsh-space-gap-small);
   --gsh-checkbox-text-color: var(--gsh-color-text-primary);
 
