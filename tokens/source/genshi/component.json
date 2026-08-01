@@ -244,6 +244,20 @@
                 "$type": "color"
               }
             },
+            "warning": {
+              "default": {
+                "$value": "{gsh.color.interaction.warning.solid.subtle}",
+                "$type": "color"
+              },
+              "hover": {
+                "$value": "{gsh.color.interaction.warning.solid.weak}",
+                "$type": "color"
+              },
+              "pressed": {
+                "$value": "{gsh.color.interaction.warning.solid.weakest}",
+                "$type": "color"
+              }
+            },
             "disabled": {
               "$value": "{gsh.color.interaction.disabled.subtle}",
               "$type": "color"
@@ -303,6 +317,20 @@
               },
               "pressed": {
                 "$value": "{gsh.color.interaction.positive.faded.subtle}",
+                "$type": "color"
+              }
+            },
+            "warning": {
+              "default": {
+                "$value": "{gsh.color.interaction.warning.faded.weakest}",
+                "$type": "color"
+              },
+              "hover": {
+                "$value": "{gsh.color.interaction.warning.faded.weak}",
+                "$type": "color"
+              },
+              "pressed": {
+                "$value": "{gsh.color.interaction.warning.faded.subtle}",
                 "$type": "color"
               }
             },
@@ -404,6 +432,20 @@
                 "$type": "color"
               }
             },
+            "warning": {
+              "default": {
+                "$value": "{gsh.color.interaction.warning.ghost.weakest}",
+                "$type": "color"
+              },
+              "hover": {
+                "$value": "{gsh.color.interaction.warning.ghost.weak}",
+                "$type": "color"
+              },
+              "pressed": {
+                "$value": "{gsh.color.interaction.warning.ghost.subtle}",
+                "$type": "color"
+              }
+            },
             "disabled": {
               "$value": "{gsh.color.interaction.disabled.transparent}",
               "$type": "color"
@@ -484,6 +526,20 @@
                 "$type": "color"
               }
             },
+            "warning": {
+              "default": {
+                "$value": "{gsh.color.interaction.warning.ghost.weakest}",
+                "$type": "color"
+              },
+              "hover": {
+                "$value": "{gsh.color.interaction.warning.ghost.weak}",
+                "$type": "color"
+              },
+              "pressed": {
+                "$value": "{gsh.color.interaction.warning.ghost.subtle}",
+                "$type": "color"
+              }
+            },
             "disabled": {
               "$value": "{gsh.color.interaction.disabled.transparent}",
               "$type": "color"
@@ -543,6 +599,20 @@
               },
               "pressed": {
                 "$value": "{gsh.color.interaction.positive.ghost.subtle}",
+                "$type": "color"
+              }
+            },
+            "warning": {
+              "default": {
+                "$value": "{gsh.color.interaction.warning.ghost.weakest}",
+                "$type": "color"
+              },
+              "hover": {
+                "$value": "{gsh.color.interaction.warning.ghost.weak}",
+                "$type": "color"
+              },
+              "pressed": {
+                "$value": "{gsh.color.interaction.warning.ghost.subtle}",
                 "$type": "color"
               }
             },
@@ -646,6 +716,20 @@
                 "$type": "color"
               }
             },
+            "warning": {
+              "default": {
+                "$value": "{gsh.color.interaction.warning.solid.strong}",
+                "$type": "color"
+              },
+              "hover": {
+                "$value": "{gsh.color.interaction.warning.solid.subtle}",
+                "$type": "color"
+              },
+              "pressed": {
+                "$value": "{gsh.color.interaction.warning.solid.weak}",
+                "$type": "color"
+              }
+            },
             "disabled": {
               "$value": "{gsh.color.interaction.disabled.strong}",
               "$type": "color"
@@ -705,6 +789,20 @@
               },
               "pressed": {
                 "$value": "{gsh.color.interaction.positive.faded.subtle}",
+                "$type": "color"
+              }
+            },
+            "warning": {
+              "default": {
+                "$value": "{gsh.color.interaction.warning.faded.weakest}",
+                "$type": "color"
+              },
+              "hover": {
+                "$value": "{gsh.color.interaction.warning.faded.weak}",
+                "$type": "color"
+              },
+              "pressed": {
+                "$value": "{gsh.color.interaction.warning.faded.subtle}",
                 "$type": "color"
               }
             },
@@ -785,6 +883,20 @@
               },
               "pressed": {
                 "$value": "{gsh.color.interaction.positive.ghost.subtle}",
+                "$type": "color"
+              }
+            },
+            "warning": {
+              "default": {
+                "$value": "{gsh.color.interaction.warning.ghost.weakest}",
+                "$type": "color"
+              },
+              "hover": {
+                "$value": "{gsh.color.interaction.warning.ghost.weak}",
+                "$type": "color"
+              },
+              "pressed": {
+                "$value": "{gsh.color.interaction.warning.ghost.subtle}",
                 "$type": "color"
               }
             },
@@ -886,6 +998,20 @@
                 "$type": "color"
               }
             },
+            "warning": {
+              "default": {
+                "$value": "{gsh.color.interaction.warning.solid.strong}",
+                "$type": "color"
+              },
+              "hover": {
+                "$value": "{gsh.color.interaction.warning.solid.subtle}",
+                "$type": "color"
+              },
+              "pressed": {
+                "$value": "{gsh.color.interaction.warning.solid.weak}",
+                "$type": "color"
+              }
+            },
             "disabled": {
               "$value": "{gsh.color.interaction.disabled.strong}",
               "$type": "color"
@@ -935,6 +1061,20 @@
               }
             },
             "positive": {
+              "default": {
+                "$value": "{gsh.color.interaction.neutral.ghost.weak}",
+                "$type": "color"
+              },
+              "hover": {
+                "$value": "{gsh.color.interaction.neutral.ghost.subtle}",
+                "$type": "color"
+              },
+              "pressed": {
+                "$value": "{gsh.color.interaction.neutral.ghost.strong}",
+                "$type": "color"
+              }
+            },
+            "warning": {
               "default": {
                 "$value": "{gsh.color.interaction.neutral.ghost.weak}",
                 "$type": "color"
@@ -1000,6 +1140,10 @@
               "$value": "{gsh.color.text.positive.strong}",
               "$type": "color"
             },
+            "warning": {
+              "$value": "{gsh.color.text.warning.strong}",
+              "$type": "color"
+            },
             "inverse": {
               "$value": "{gsh.color.text.default.inverted-primary}",
               "$type": "color"
@@ -1025,6 +1169,10 @@
             "positive": {
               "$value": "{gsh.color.text.positive.strong}",
               "$type": "color"
+            },
+            "warning": {
+              "$value": "{gsh.color.text.warning.strong}",
+              "$type": "color"
             }
           },
           "bare": {
@@ -1042,6 +1190,10 @@
             },
             "positive": {
               "$value": "{gsh.color.text.positive.strong}",
+              "$type": "color"
+            },
+            "warning": {
+              "$value": "{gsh.color.text.warning.strong}",
               "$type": "color"
             },
             "inverse": {
@@ -1066,8 +1218,22 @@
               "$value": "{gsh.color.text.positive.strong}",
               "$type": "color"
             },
+            "warning": {
+              "$value": "{gsh.color.text.warning.strong}",
+              "$type": "color"
+            },
             "inverse": {
               "$value": "{gsh.color.text.default.inverted-primary}",
+              "$type": "color"
+            }
+          },
+          "link": {
+            "brand": {
+              "$value": "{gsh.color.text.default.brand}",
+              "$type": "color"
+            },
+            "disabled": {
+              "$value": "{gsh.color.interaction.disabled.strong}",
               "$type": "color"
             }
           }
